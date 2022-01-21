@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Google Maps</title>
+<link href="externa.css" rel="stylesheet">
+<style>
+
+#mapa h2 {
+	color: black;
+}
+#mapa p {
+	color: black;	
+}
+
+#mapa {
+	
+	height:400px;
+	width:760px;
+
+}
+
+
+</style>
+
+<script type="text/javascript" src="https://maps.google.com/maps/api/js?key=#API_KEY#"></script> 
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script type="text/javascript" src="jquery.gomap-1.3.2.min.js"></script> 
+
+<script>
+
+	$(document).ready(function() {
+		
+		$("#mapa").goMap({
+
+			latitude: 40.420415,
+			longitude: -3.705027,
+			zoom: 16,
+			maptype: "SATELLITE", //TERRAIN
+			scaleControl: true
+
+		});//end goMap()
+
+		$.goMap.createMarker({
+
+			latitude: 40.420415,
+			longitude: -3.705027,
+			title:"Museo",
+			html:{
+				content: "<h2>Museo de la ciudad</h2>",
+				popup: true
+			}
+
+		});
+		
+	}); 
+
+</script>
+
+</head>
+<body>
+
+	<div class="cabecera">
+		<p class="logo">Mapas</p>
+	</div>
+	<div class="contenido">
+		<div class="principal">
+			<h1>Google Maps</h1>
+            
+            <div id="mapa"></div>
+
+		</div>
+	</div>
+	
+
+</body>
+</html>

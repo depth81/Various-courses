@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JQuery IX. Leyendo y cambiando atributos CSS I Vídeo 37. Práctica</title>
+</head>
+
+    <style>
+
+        h1{
+            text-align: center;
+            margin:auto;
+            margin-bottom: 30px;
+        }
+
+        div{
+            width: 19%;
+            margin: 0 100px;
+            float: left;
+            border: #F00 solid 2px;
+            padding: 10px;
+        }
+
+        table{
+            width: 100%;
+            margin-top: 10px;
+        }
+
+    </style>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script>
+
+        var zonaActuacion;
+
+        $(document).ready(function(){
+
+            var botones = document.querySelectorAll("input[id^='mL']");
+        
+            for(var i=0; i<botones.length;i++){
+
+                botones[i].addEventListener("click", modoLectura,false);
+
+            }
+
+        });
+
+        function modoLectura(e){
+
+            if(e.target==mLectura1){
+
+                zonaActuacion="#noticia1";
+
+            }
+            else if(e.target==mLectura2){
+
+                zonaActuacion="#noticia2";
+
+            }
+            else if(e.target==mLectura3){
+
+                zonaActuacion="#noticia3";
+
+            }
+
+            $(zonaActuacion).css({"background-color":"#000",                    "font-size":"20px", 
+            "text-align":"justify",
+            "color":"#FFF"}
+            );
+
+        }
+    
+    </script>
+    
+<body>
+    
+    <h1>NOTICIAS</h1>
+    <div id="noticia1">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam dignissim condimentum quam vel venenatis. Nullam neque ligula, cursus at turpis vitae, pharetra dignissim felis. Nulla facilisi. Duis condimentum hendrerit auctor. Sed ullamcorper nisi lacus, a mollis tortor scelerisque quis. Nam vel sodales tortor. Sed in enim ex. Quisque in facilisis nulla. Aliquam ligula eros, iaculis sed metus ut, consequat vulputate nulla. Quisque ac egestas eros, in cursus justo. 
+        <table>
+            <tr>
+                <td style="text-align: center;"><input type="button" value="Modo Lectura" id="mLectura1"></td>
+            </tr>
+        </table>
+    </div>
+
+    <div id="noticia2">
+        Nunc a efficitur quam, in mattis nulla. Aliquam blandit rutrum metus, sit amet pretium nibh efficitur sit amet. In imperdiet quis neque sit amet vestibulum. Nunc fringilla porttitor urna, ac laoreet lorem maximus vel. Praesent ut nibh ut elit varius luctus. Etiam ultricies euismod placerat. Pellentesque vel sem egestas, cursus justo et, vestibulum nisl. Donec nec leo id urna laoreet auctor. Fusce nibh magna, tempus eget laoreet in, fringilla ac metus. Maecenas convallis lectus non posuere sodales.  
+        <table>
+            <tr>
+                <td style="text-align: center;"><input type="button" value="Modo Lectura" id="mLectura2"></td>
+            </tr>
+        </table>
+    </div>
+
+    <div id="noticia3">
+        Donec vitae ipsum nec velit congue pulvinar. Ut id est augue. Integer fermentum ultrices orci quis tempus. Aenean id augue suscipit, pulvinar diam ac, scelerisque elit. Pellentesque bibendum nulla quis nunc lobortis lacinia. Cras metus orci, sollicitudin eget mattis eget, hendrerit sed magna. Etiam hendrerit porta dui. Sed maximus malesuada leo consectetur laoreet. Pellentesque porttitor elit sed massa finibus congue. Etiam vitae libero venenatis, vestibulum tellus vitae, tincidunt massa. Aliquam porttitor, nunc a convallis posuere, eros metus commodo augue, quis bibendum orci felis vel odio. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Pellentesque ut ipsum id ipsum consectetur lacinia tincidunt vitae metus. Donec quis neque mi. Vestibulum eu varius quam. 
+        <table>
+            <table>
+                <tr>
+                    <td style="text-align: center;"><input type="button" value="Modo Lectura" id="mLectura3"></td>
+                </tr>
+            </table>
+        </table>
+    </div>
+
+
+</body>
+</html>

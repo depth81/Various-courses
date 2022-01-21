@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cotizaciones</title>
+   <!-- Bootstrap -->
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+
+<body>
+    <h1>cotizador de productos</h1>
+        
+    <p>Permite realizar operaciones con valores y seleccionando algunas características para evitar errores de digitación</p> 
+    
+    <div class="container">
+
+        <form action="" class="form">
+
+            <div class="row">
+                <label for="precio">Valor Producto</label>
+                <input type="number" required min="0" max="999999" name="precio" id="precio" class="form-control" onchange="calcular()" onkeyup="calcular()">
+                <!-- onchange se deja por la navegación en móviles -->
+            </div>
+            <div class="row">
+                <label for="cantidad">Digite la cantidad</label>
+                <select required class="form-control" name="cantidad" id="cantidad" onchange="calcular()">
+                <option value="0">Seleccione...</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                </select>          
+            </div>
+            <div class="row">
+                <label for="descuento">% de descuento</label>
+                <select required class="form-control" name="descuento" id="descuento" onchange="calcular()">
+                    <option value="0">Seleccione...</option>
+                    <option value="10">10</option>
+                    <option value="15">15</option>
+                    <option value="20">20</option>
+                </select>
+                </div>
+            <div class="row">
+                <label for="impuesto">% de impuesto</label>
+                <select required class="form-control" id="impuesto" name="impuesto" onchange="calcular()">
+                    <option value="0">Seleccione....</option>
+                    <option value="7">7</option>
+                    <option value="11">11</option>
+                    <option value="14">14</option>
+                    <option value="19">19</option>
+                    <option value="21">21</option>
+                </select>
+            </div>
+            <div class="row">
+                <label for="grantotal">Gran total</label>
+                <input type="number" readonly name="grantotal" id="grantotal" class="form-control">
+            </div>
+            <div class="row">
+                <button id="boton" type="button" class="btn btn-info" onclick="calcular();">Calcular</button>
+            </div>
+            
+        </form>
+
+    </div>
+
+</body>
+</html>
+
+<script type="text/javascript">
+
+ 
+function calcular(){
+
+    
+    /* Capturar los valores ingresados en los campos y realizar operaciones 
+    1. Calcular el subtotal
+    2. Al subtotal aplicarle descuentos
+    3. Al valor anterior aplicarle el impuesto
+    4. Pasarle el valor final al campo grantotal 
+    */
+
+    //El atributo de color del total debe comenzar sin color
+     document.getElementById("grantotal").style.color = "#000000";
+
+    var precio = document.getElementById("precio").value;
+    var cantidad = document.getElementById("cantidad").value;
+    var descuento = document.getElementById("descuento").value;
+    var impuesto = document.getElementById("impuesto").value;
+
+    var subtotal = precio*cantidad;
+    var valorDescuento = subtotal*(descuento/100);
+    var baseImpuesto = subtotal - valorDescuento;
+    var valorImpuesto = baseImpuesto*(impuesto/100);
+
+    var grantotal = baseImpuesto+valorImpuesto;
+
+    //vamos a pasar el valor al campo grantotal
+    //Para formatear un valor se puede usar tofixed() -> cuántas cifras decimales?; toLocaleString -> Formatea al idioma de la máquina, NumberFormat.
+    var formatoValor = grantotal.toFixed(0);
+    document.getElementById("grantotal").value = formatoValor.toLocaleString("es-ES");
+
+    if(formatoValor<precio){
+        document.getElementById("grantotal") .style.color = "#C51B1B";
+    }
+  
+}
+
+
+
+</script>

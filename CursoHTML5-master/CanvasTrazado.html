@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas IV. Trazados</title>
+
+    <style>
+
+        section{
+            width: 500px;
+            height: 300px;
+            margin: auto;
+        }
+
+        #lienzo{
+            border: 1px red solid;
+        }
+
+    </style>
+
+    <script>
+
+        window.addEventListener("load", comenzar, false);
+
+        function comenzar(){
+
+            var elemento = document.getElementById("lienzo");
+
+            lienzo = elemento.getContext("2d");
+
+            lienzo.beginPath();
+
+            //Mover el lápiz a la coordenada de inicio.
+            lienzo.moveTo(100,200); 
+
+            //Indicar coordenadas de destino.
+            lienzo.lineTo(200,200) 
+
+            lienzo.lineTo(200,150);
+
+            lienzo.lineTo(100,150);
+
+            lienzo.lineTo(100,200);
+
+            //Dibujar una máscara sobre el Canvas (ventana) con las coordenadas anteriores (Cuadrado).          
+            lienzo.clip();
+
+            lienzo.beginPath();
+
+            //Dibujar líneas horizontales
+            for(var i=0;i<250;i+=5){
+
+                lienzo.moveTo(0,i)
+
+                lienzo.lineTo(500,i);
+
+            }
+            
+            //lienzo.closePath();
+
+            //Dibujar el trazado generado en JS.
+            lienzo.stroke(); 
+
+            //lienzo.fill();
+
+        }
+
+    </script>
+
+
+</head>
+<body>
+
+    <section id="dibujo">
+
+        <canvas id="lienzo" width="500px" height="300px">
+
+            Este elemento no es soportado por su navegador.
+
+        </canvas>
+
+    </section>
+   
+</body>
+</html>

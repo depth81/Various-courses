@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas V. Trazados Curvos</title>
+
+    <style>
+
+        #lienzo{
+            border: 1px red solid;
+        }
+
+    </style>
+
+    <script>
+
+        function comenzar(){
+
+            var elemento = document.getElementById("lienzo");
+
+            lienzo = elemento.getContext("2d");
+
+            //Comenzar a dibujar un trazado
+            lienzo.beginPath();
+
+            //lienzo.arc(250,100,100,0,Math.PI,true);
+
+            //Punto inicial dentro del Canvas
+            lienzo.moveTo(250,50);
+            
+            //lienzo.quadraticCurveTo(300,50,50,290);
+
+            lienzo.bezierCurveTo(200,125,300,125,250,200);
+
+            //Dibujar una figura sin relleno. (fill dibuja una figura con relleno)
+            lienzo.stroke();      
+
+        }
+
+        window.addEventListener("load",comenzar,false);
+
+    </script>
+
+</head>
+<body>
+    
+    <section>
+
+        <canvas id="lienzo" width="500px" height="300px">
+
+            Su navegador no admite el elemento Canvas.
+
+        </canvas>
+
+    </section>
+
+</body>
+</html>

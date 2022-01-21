@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos Anidados</title>
+
+    <script>
+
+        function aviso1(){
+            alert("Hola! soy la imágen <img>");
+        }
+
+        function aviso2(){
+            alert("Hola! soy el párrafo <p>");
+        }
+
+        function loseventos(){
+            var elemento1 = document.getElementsByTagName("img")[0];
+            var elemento2 = document.getElementsByTagName("p")[0];
+
+            elemento1.addEventListener("click", aviso1, false);
+            elemento2.addEventListener("click", aviso2, true); //prioridad al párrafo
+        }
+
+    window.addEventListener("load", loseventos, false);
+
+    </script>
+
+</head>
+<body>
+    
+    <p><img src="img/waves.jpg"></p>
+
+</body>
+</html>

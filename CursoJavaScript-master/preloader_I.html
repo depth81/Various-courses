@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Documento sin título</title>
+<script src="Jquery/jquery-1.6.3.min.js"></script>
+<script>
+
+	//Nada del script se va a cargar antes que la imágen del <body>.
+	$(document).ready(function() {
+
+		var fotoNueva = new Image();  //variable de tipo imágen.
+
+		fotoNueva.src = "img/forest1.jpg" //src es una propiedad que sirve para indicar la ruta de una imágen. (Esta es la imágen de sustitución)
+		
+		$("#foto").hover(function(){
+			//Cuando el navegador llega a esta línea de código porque el usuario ha pasado el ratón por encima de la imágen, ya viene cargada la imágen de sustitución además de tener cargada también la imágen original. 
+			$(this).attr("src",fotoNueva.src);
+			
+		},
+		function(){
+			
+			$(this).attr("src","img/img2/forest1b.jpg");
+						
+		});	
+		
+    });
+
+
+</script>
+</head>
+
+<body>
+
+<img src="img/img2/forest1b.jpg" width="300" height="200" id="foto">
+</body>
+</html>

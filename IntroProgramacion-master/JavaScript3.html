@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplos JavaScript</title>
+</head>
+<body>
+
+    <pre>En este ejemplo vamos a cambiar los contenidos html a un elemento de un documento:
+        Eventos: Son funciones que ocurren bajo la acción humana.
+        -click -onclick 
+        -Dos veces click: dblclick 
+        -Pasar el mouse por encima: mouseOver
+        -Salirme del foco: onBlur
+        -tecleo: onekeypress, onkeydown, onkeyup.
+        -arrastrar sostenido y soltar ondrag ondrop
+        -cambiar valores de un seleccionador - onchange
+    </pre>
+
+   <h1> <a href="#" onclick="cambiarContenido();">Cambiar contenido de la parte de abajo al dar click en el enlace.</a></h1>
+
+   <div id="contenido"></div>
+  
+    
+</body>
+</html>
+
+<script type="text/Javascript">
+
+    //Funciones o Métodos let. functions <==> arrows
+    function operadores(a,b,tipo){
+
+        /*Dependiendo del parámetro 'tipo' realiza algunas operaciones
+          tipo operador: +, -, /, *
+        a y b son valores numéricos.
+        */
+        if (tipo=="+"){
+            total = a + b;
+        }
+        else if(tipo=="*"){
+            total = a * b;
+        }
+        else if(tipo=="/"){
+            total = a / b;
+        }
+        else if(tipo=="-"){
+            total = a - b;
+        }
+        else{
+            total = "La operación no es válida";
+        }
+
+        resultado = "La operación con " + tipo + " es: " + total;
+
+        return resultado;
+  
+    }
+
+    alert(resultado);
+
+    function cambiarContenido(){
+        var capa = document.getElementById("contenido")
+        if(capa){
+            capa.innerHTML = operadores(50,26,"*");
+        }
+    }
+
+
+</script>

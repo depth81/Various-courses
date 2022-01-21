@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formularios</title>
+</head>
+<body>
+    
+    <form method="get" name="miFormulario" id="miFormulario" autocomplete="on">
+      <section>
+        Email:&nbsp;<input type="email" name="email" id="email" required multiple><br><br>
+        Buscar:&nbsp;<input type="search" name="buscar" id="buscar"><br><br>
+        URL:&nbsp;<input type="url" name="url" id="url" autofocus><br><br>
+        Edad:&nbsp;<input type="range" name="edad" id="edad" min="5" max="105"><br><br>
+        Fecha:&nbsp;<input type="time" name="fecha" id="fecha"><br><br>
+        Código Postal:&nbsp;<input pattern="[0-9]{5}" name="cpostal" id="cpostal" placeholder="5 dígitos"><br><br>
+        <input type="datetime" name="fecha" id="fecha">
+        <input type="submit" name="" id="" value="Enviar">
+      </section>
+    </form>
+
+    <section>
+      <img src="img/galaxy.jpg" alt=""><br>
+    </section>
+
+    Nombre:&nbsp;<input type="text" name="nombre" id="nombre" form="miFormulario">
+
+</body>
+</html>

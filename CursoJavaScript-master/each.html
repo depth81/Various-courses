@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Función each y funciones anónimas. Vídeo 41</title>
+
+    <style>
+
+        img{
+            margin: 0 20px;
+        }
+
+        #contenedor{
+            width: 75%;
+            margin: auto;
+        }
+
+    </style>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script>
+
+        $(document).ready(function(){
+
+            document.getElementById("miBoton").addEventListener("click",cambiar,false);
+
+        });
+
+        function cambiar(){
+
+            //$("img").fadeOut(1000).fadeIn(1000).width("310");
+
+            $("img").each(function(){
+                
+                $(this).fadeOut(1000).fadeIn(1000).width("310");
+
+            });
+
+        }
+
+    </script>
+
+</head>
+<body>
+
+    <div id="contenedor">
+        <img src="img/forest1.jpg" alt="">
+        <img src="img/forest2.jpg" alt="">
+        <img src="img/forest3.jpg" alt="">
+        <img src="img/forest4.jpg" alt="">
+    </div>
+
+    <div id="boton">
+        <input type="button" id="miBoton" value="Acción">
+    </div>
+    
+</body>
+</html>

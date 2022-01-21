@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JQuery XIV Eventos con JQuery I. Vídeo 42</title>
+
+    <style>
+
+        body{
+            background-color: #29088A;
+        }
+
+        a{
+            color: #FFF;
+            font: bold 20px Verdana, Geneva, sans-serif;
+        }
+        
+        #principal{
+            
+            color: aliceblue;
+
+        }
+
+        h1{
+            text-align: center;
+        }
+
+    </style>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script>
+
+        $(document).ready(function(){
+
+            $("html").dblclick(function(){
+
+                alert("Ay!");
+
+            });
+
+            $("a").mouseover(function(){
+
+                //alert("Has pasado el ratón por el link");
+
+                var mensaje = "<p> Estás pasando el ratón por el link </p>";
+
+                $("#principal").append(mensaje);
+
+            });
+
+            $("#elBoton").click(function(){
+
+                //'this' Hace referencia al objeto en donde estemos.
+                $(this).val("Para de hacer click!!!");
+
+            });
+
+            $("#elCampo").focus(function(){
+
+                $(this).val("Ahora vas a escribir...");
+
+            });
+
+        });
+
+    </script>
+
+</head>
+<body>
+
+    <div id="principal">
+
+        <h1>Introducción a los eventos</h1>
+
+        <p><a href="#">Un link</a></p>
+
+        <form action="#" method="GET">
+            <fieldset><legend>Formulario</legend>
+                <p>
+                    <input type="button" name="button" id="elBoton" value="Un Botón">
+                </p>
+                <p>
+                    <input type="text" name="textfield" id="elCampo">
+                </p>
+            </fieldset>
+        </form>
+
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Canvas VIII. Transformaciones. Vídeo 33</title>
+
+    <style>
+
+        #lienzo{
+            border: 1px solid #ff0000;
+        }
+
+        section{
+            width: 1200px;
+            position: relative;
+            margin: auto;
+        }
+
+    </style>
+
+
+    <script>
+
+        function comenzar(){
+
+            var elemento = document.getElementById("lienzo");
+
+            var lienzo = elemento.getContext("2d"); 
+
+            lienzo.font = "bold 20px Verdana";
+
+            lienzo.fillText("Hola Mundo!", 50, 20);
+
+            //trasladar el orígen de coordenadas por defecto (esquina superior izquierda) al punto inducado (x,y)
+            lienzo.translate(100,100);
+
+            //triplicar el tamaño de ambos ejes.
+            lienzo.scale(3,3);
+
+            //Rotar el lienzo 180°. El Canvas queda al revés.
+            lienzo.rotate(Math.PI);
+
+            lienzo.fillText("Hola Mundo!", -200, -150);
+
+        }
+
+        window.addEventListener("load", comenzar, false);
+
+    </script>
+
+</head>
+<body>
+
+    <section>
+
+        <canvas width="1200" height="900" id="lienzo">
+
+            Su navegador no admite el elemento Canvas.
+
+        </canvas>
+
+    </section>
+    
+</body>
+</html>

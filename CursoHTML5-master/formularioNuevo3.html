@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DataList y API forms</title>
+
+    <style>
+
+        table{
+            text-align:center;
+            background-color:aquamarine;
+            width:25%;
+            margin:auto;
+            border: 2px #e3872c dashed;
+        }
+
+        td{
+            padding: 15px;
+        }
+
+    </style>
+
+    <script>
+
+        var edad;
+
+        function comenzar(){
+
+            edad = document.getElementById("miedad");
+
+            edad.addEventListener("change",cambiaRango,false);
+
+            document.datosUsuario.addEventListener("invalid", validar, true);
+            //true: prioridad al formulario y después a la edad.
+
+            document.getElementById("enviar").addEventListener("click", enviar, false); //identificación de elemento y escucha en una línea.
+
+            document.datosUsuario.addEventListener("input",validarTiempoReal,false);
+            
+        }
+
+        function cambiaRango(){
+
+            var salida = document.getElementById("rango");
+
+            var calculo = edad.value - 30; //almacenar 0.
+
+            if(calculo<30){
+                
+                calculo = 0;
+                
+                edad.value = 30;
+            }
+
+            salida.innerHTML = calculo + " a " + edad.value;
+
+        }
+
+        function validar(e){
+
+            var elemento = e.target;
+
+            elemento.style.background = "#FFDDDD";
+
+        }
+
+        function enviar(){
+
+            var cuadroUsuario = document.getElementById("usuario");
+
+            var correcto = document.datosUsuario.checkValidity();
+
+            if(correcto){
+
+                document.datosUsuario.submit();
+
+            }
+            else if(cuadroUsuario.validity.valueMissing || cuadroUsuario.validity.patternMismatch){
+
+                alert("El usuario no puede estar vacío y recuerda que debe tener exactamente tres (3) letras");
+
+            }
+
+        }
+
+        function validarTiempoReal(e){
+
+            var elemento = e.target; //con e se localiza el objeto que genera el error
+
+            if(elemento.validity.valid){
+
+                elemento.style.background = "#FFFFFF";
+
+            }
+            else{
+
+                elemento.style.background = "#FFDDDD"
+
+            }
+
+        }
+
+        window.addEventListener("load",comenzar, false);
+
+    </script>
+
+</head>
+<body>
+
+    <section>
+
+        <form action="" name="datosUsuario" method="GET">
+
+            <table>
+                <tr>
+                    <td>Usuario:</td>
+                    <td><input pattern="[A-Za-z]{3}" name="usuario" id="usuario" maxlength="10" required></td>
+                </tr>
+                <tr>
+                    <td>Email:</td>
+                    <td><input type="email" name="miemail" id="miemail" required></td>
+                </tr>
+                <tr>
+                    <td>Edad:</td>
+                    <td><input type="range" name="miedad" id="miedad" min="0" max="120" value="30" step="30"></td>
+                </tr>
+                <tr>
+                    <td><output id="rango">0 a 30</output></td>
+                </tr>
+                <tr>
+                    <td><input type="submit" name="enviar" id="enviar" value="Registrar"></td>
+                </tr>
+            </table>
+          
+        </form>
+
+    </section>
+    
+</body>
+</html>

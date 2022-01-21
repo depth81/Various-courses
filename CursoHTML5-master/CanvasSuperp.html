@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Canvas VIII. Transformaciones. Vídeo 33</title>
+
+    <style>
+
+        #lienzo{
+            border: 1px solid #ff0000;
+        }
+
+        /*section{
+            width: 1200px;
+            position: relative;
+            margin: auto;
+        }*/
+
+    </style>
+
+
+    <script>
+
+        function comenzar(){
+
+            var elemento = document.getElementById("lienzo");
+
+            var lienzo = elemento.getContext("2d"); 
+
+            //Crear variable tipo imágen
+            var imagen = new Image();
+
+            imagen.src="img/1.jpg";
+
+            //primera pareja: En dónde se empieza a recortar la imágen.
+            //segunda pareja: Tamaño de la imágen antes de recortar.
+            //tercera pareja: En dónde dibujar la imágen dentro del Canvas.
+            //cuarta pareja: Tamaño final del recorte.
+            imagen.addEventListener("load", function(){lienzo.drawImage(imagen,50,10,75,75,0,0,300,300)} ,false);
+                       
+        }
+
+        window.addEventListener("load", comenzar, false);
+
+    </script>
+
+</head>
+<body>
+
+    <section>
+
+        <canvas width="1200" height="900" id="lienzo">
+
+            Su navegador no admite el elemento Canvas.
+
+        </canvas>
+
+    </section>
+    
+</body>
+</html>

@@ -1,0 +1,30 @@
+body{
+    background: url(laptop2.jpg) no-repeat center center fixed;
+    background-size: cover;
+    font-family: 'Libre Baskerville', serif;
+}
+
+.rowHeight{
+    height: 500px;
+}
+
+h1{
+    color: black;
+    font-size: 2.5em;
+}
+
+.bg{
+    background-color: #c1c1c1;
+    opacity: 0.6;
+}
+
+.footer{
+    background-color: white;
+    position: fixed;
+    bottom: 0;
+}
+
+p{
+    font-size: 18px;
+    padding: 10px;
+}

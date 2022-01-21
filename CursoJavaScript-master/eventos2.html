@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> JQuery XV. Eventos con JQuery II. Vídeo 43</title>
+</head>
+
+    <style>
+
+        #imagenes{
+            width: 1475px;
+            margin: auto;
+        }
+
+        img{
+            padding: 20px 30px;
+        }
+
+        div[id^="mens"]{
+            position: absolute;
+            left: 500px;
+            top: 392px;
+            width: 581px;
+            height: 215px;
+            background-color: #FF9;
+            font-size: 24px;
+            font-weight: bold;
+            padding: 25px;
+            border: dotted 2px #0000ff;
+        }
+
+        /* #mensaje_img1{
+            position: absolute;
+            left: 500px;
+            top: 392px;
+            width: 581px;
+            height: 215px;
+            background-color: #FF9;
+            font-size: 24px;
+            font-weight: bold;
+            padding: 25px;
+            border: dotted 2px #0000ff;
+        } */
+
+    </style>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script>
+
+        $(document).ready(function(){
+
+            $("#mensaje_img1").hide();
+            $("#mensaje_img2").hide();
+            $("#mensaje_img3").hide();
+            $("#mensaje_img4").hide();
+
+            //$("#imagen1").hover(mensajeOn,mensajeOff);
+
+            //Con funciones anónimas...
+            $("#imagen1").hover(function(){$("#mensaje_img1").show();},function(){$("#mensaje_img1").hide();});
+
+            $("#imagen2").hover(function(){$("#mensaje_img2").show();},function(){$("#mensaje_img2").hide();});
+
+            $("#imagen3").hover(function(){$("#mensaje_img3").show();},function(){$("#mensaje_img3").hide();});
+
+            $("#imagen4").hover(function(){$("#mensaje_img4").show();},function(){$("#mensaje_img4").hide();});
+
+        });
+
+        /*
+        function mensajeOn(){
+
+            $("#mensaje_img1").show();
+
+        }
+
+        function mensajeOff(){
+
+            $("#mensaje_img1").hide();
+
+        }
+        */
+
+    </script>
+
+<body>
+
+    <div id="mensaje_img1">Bosque espectacular...</div>
+    <div id="mensaje_img2">Segundo Bosque espectacular...</div>
+    <div id="mensaje_img3">Tercer Bosque espectacular...</div>
+    <div id="mensaje_img4">Cuarto Bosque espectacular...</div>
+
+    <div id="imagenes">
+        <img src="img/forest.jpg" id="imagen1">
+        <img src="img/forest1.jpg" id="imagen2">
+        <img src="img/forest2.jpg" id="imagen3">
+        <img src="img/forest3.jpg" id="imagen4">
+    </div>
+    
+</body>
+</html>

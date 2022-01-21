@@ -1,0 +1,19 @@
+
+#contenido{
+    float: left;
+    padding: 30px;
+    border: 2px dotted #5858FA;
+}
+
+#zonaDatos{
+    float: left;
+    width: 600px;
+    margin-left: 30px;
+    padding: 30px;
+    border: 2px dotted #FF0080;
+}
+
+#contenido span{
+    color: #81BEF7;
+    cursor: pointer;
+}

@@ -1,0 +1,28 @@
+body {
+    background-color: #E0F8F7;
+}
+
+h1{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-align: center;
+    text-shadow: 5px 5px 4px grey;
+    color: blue;
+}
+
+div{
+    text-align: center;
+}
+
+div img{
+    height: 250px;
+    width: 500px;
+}
+
+p {
+    text-align: center;
+    font-size: 25px;
+}
+
+p a{
+    text-decoration: none;
+}

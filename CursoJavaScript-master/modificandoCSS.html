@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JQuery IX. Leyendo y cambiando atributos CSS I Vídeo 37</title>
+
+    <style>
+
+        #primer_parrafo{
+            background-color: #F00;
+        }
+
+    </style>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script>
+
+        //hacer que el código JS no se ejecute antes de que haya cargado la página web completamente
+        $(document).ready(function(){
+
+            //En colorFondo se guarda el valor de la propiedad css del párrafo p(primer_parrafo). En este caso el color.     
+            //var colorFondo = $("#primer_parrafo").css("background-color");
+
+            //alert(colorFondo);
+
+            //Mofificar la propiedad (color) del elemento
+            //$("#primer_parrafo").css("background-color","#00F");
+
+            //Modificar al p que tiene el atributo de clase .destacado
+            $("p.destacado").css("border","2px dotted blue");
+
+        });
+
+    </script>
+
+</head>
+<body>
+
+    <p id="primer_parrafo">Primer párrafo</p>
+    <p class="destacado">Párrafo destacado</p>
+    <p>Tercer párrafo</p>
+    
+</body>
+</html>

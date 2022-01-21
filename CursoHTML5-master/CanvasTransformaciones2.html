@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Canvas VIII. Transformaciones. Vídeo 33</title>
+
+    <style>
+
+        #lienzo{
+            border: 1px solid #ff0000;
+        }
+
+        section{
+            width: 1200px;
+            position: relative;
+            margin: auto;
+        }
+
+    </style>
+
+
+    <script>
+
+        function comenzar(){
+
+            var elemento = document.getElementById("lienzo");
+
+            var lienzo = elemento.getContext("2d"); 
+
+            //lienzo.transform(3,0,0,1,0,0);
+
+            //especificar el tipo de letra para el texto
+
+            lienzo.font="bold 20px Verdana";
+
+            //Escribir dentro del Canvas en la posición indicada.
+
+            //lienzo.fillText("Hola alumnos", 50, 50);
+
+            //los valores son acumulativos. Usando setTransform es darle reset a los transform.
+
+            //lienzo.setTransform(1,0,0,10,0,0);
+
+            //lienzo.font="bold 20px Verdana";
+
+            //lienzo.fillText("Hola Mundo!", 50, 50);
+
+            //Guardar el estado del Canvas ("foto instantánea")
+            lienzo.save();
+
+            lienzo.fillText("Hola alumnos", 50, 50);
+
+            lienzo.translate(60,70);
+
+            lienzo.rotate(Math.PI/180*55);
+
+            lienzo.fillText("Hola alumnos", 0, 0);
+
+            //dejar el lienzo como estaba antes de la primera rotación
+            //lienzo.rotate(-Math.PI/180*55);
+
+            //Se recupera el estado del lienzo en el punto en que se usó el método save.
+            lienzo.restore();
+
+            lienzo.translate(300,400);
+
+            //Duplicar el tamaño en ambos ejes.
+            lienzo.scale(2,2);
+
+            lienzo.fillText("Hola alumnos", 100, 100);
+
+        }
+
+        window.addEventListener("load", comenzar, false);
+
+    </script>
+
+</head>
+<body>
+
+    <section>
+
+        <canvas width="1200" height="900" id="lienzo">
+
+            Su navegador no admite el elemento Canvas.
+
+        </canvas>
+
+    </section>
+    
+</body>
+</html>

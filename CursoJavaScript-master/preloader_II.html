@@ -1,0 +1,120 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Documento sin título</title>
+<style>
+
+table{
+	text-align:center;
+	width:50%;
+	border:none;
+	margin:auto;
+}
+
+img{
+	padding:0 5px;
+}
+h1{
+	text-align:center;
+}
+
+</style>
+<script src="Jquery/jquery-1.6.3.min.js"></script>
+
+<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>-->  
+
+<script>
+
+	$(document).ready(function() {
+		
+		//Almacenar la ruta de cada imágen (x4)
+		var fotoHover=["img/forest1.jpg","img/forest2.jpg","img/forest3.jpg","img/forest4.jpg"];
+
+		//Crear otro array vacío
+		var imagenes = [];
+
+		//Almacenar en imagenes[] las rutas almacenadas en fotoHover[]
+		for(var i=0; i<fotoHover.length; i++){
+			
+			imagenes[i] = new Image();
+			
+			imagenes[i].src = fotoHover[i];
+
+		}
+
+		//each: Para cada imágen ejecutar la función anónima.
+						
+		$("img").each(function() {
+			
+			$(this).hover(cambiar , restaurar);
+            
+        });
+
+	function cambiar(e){
+		
+		//detectar sobre cuál imágen pusimos el ratón.
+		if (e.target == img1){
+
+			$("#img1").attr("src",imagenes[0].src);
+
+		}
+		else if(e.target == img2){
+
+			$("#img2").attr("src",imagenes[1].src);
+
+		}
+		else if(e.target == img3){
+
+			$("#img3").attr("src",imagenes[2].src);
+
+		}
+		else if(e.target == img4){
+
+			$("#img4").attr("src",imagenes[3].src);
+
+		}
+	
+	}
+	
+	function restaurar(e){
+		
+		//detectar de cuál imágen quitamos el ratón.
+		if (e.target == img1){
+
+			$("#img1").attr("src","img/img2/forest1b.jpg");
+
+		}
+		else if(e.target == img2){
+
+			$("#img2").attr("src","img/img2/forest2b.jpg");
+
+		}
+		else if(e.target == img3){
+
+			$("#img3").attr("src","img/img2/forest3b.jpg");
+
+		}
+		else if(e.target == img4){
+
+			$("#img4").attr("src","img/img2/forest4b.jpg");
+
+		}
+		
+	}
+});
+</script>
+</head>
+
+<body>
+<h1>Galería de imágenes</h1>
+<table width="100%" border="0">
+<tr>
+	<td><img src="img/img2/forest1b.jpg" id="img1" ></td>
+	<td><img src="img/img2/forest2b.jpg" id="img2" ></td>
+	<td><img src="img/img2/forest3b.jpg" id="img3" ></td>
+	<td><img src="img/img2/forest4b.jpg" id="img4" ></td>
+</tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JQuery XI Leyendo y cambiando atributos HTML I. Vídeo 39</title>
+
+    <style>
+
+        table{
+            text-align: center;
+            width: 50%;
+            border: none;
+            margin: auto;
+            }
+
+
+        img{
+            padding: 0 5px;
+        }
+
+        h1{
+            text-align: center;
+        }
+
+    </style>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script>
+
+        //Poner todas las imágenes a la escucha de un evento...
+
+        $(document).ready(function(){
+
+            var elementos = document.querySelectorAll("img");
+
+            for (var i=0;i<elementos.length;i++){
+
+                elementos[i] = addEventListener("mouseover",cambiar,false);
+
+                elementos[i] = addEventListener("mouseout",restaurar,false);
+
+            }
+
+        });
+
+        function cambiar(e){
+
+            //Sobre cuál imágen se ha puesto el ratón?
+
+            if(e.target==img1){
+
+                $("#img1").attr("src", "img/Forest1.jpg");
+
+            }
+            else if(e.target==img2){
+
+                $("#img2").attr("src", "img/Forest2.jpg");
+
+            }
+            else if(e.target==img3){
+
+                $("#img3").attr("src", "img/Forest3.jpg");
+
+            }
+            else if(e.target==img4){
+
+                $("#img4").attr("src", "img/Forest4.jpg");
+
+            }
+
+        }
+
+        function restaurar(e){
+
+            //De cuál imágen se ha quitado el ratón?
+
+            if(e.target==img1){
+
+                $("#img1").attr("src", "img/img2/Forest1b.jpg");
+
+            }
+            else if(e.target==img2){
+
+                $("#img2").attr("src", "img/img2/Forest2b.jpg");
+
+            }
+            else if(e.target==img3){
+
+                $("#img3").attr("src", "img/img2/Forest3b.jpg");
+
+            }
+            else if(e.target==img4){
+
+                $("#img4").attr("src", "img/img2/Forest4b.jpg");
+
+            }
+
+        }
+
+    </script>
+
+</head>
+
+
+<body>
+    
+    <h1>Galería de imágenes</h1>
+
+    <table width="100%" border="0">
+        <tr>
+            <td><img src="img/img2/Forest1b.jpg" id="img1"></td>
+            <td><img src="img/img2/Forest2b.jpg" id="img2"></td>
+            <td><img src="img/img2/Forest3b.jpg" id="img3"></td>
+            <td><img src="img/img2/Forest4b.jpg" id="img4"></td>
+        </tr>
+    </table>
+
+</body>
+</html>

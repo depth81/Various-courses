@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Máquinas</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+    
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <ul class="nav justify-content-start">
+                    <li class="nav-item"> <a href="index.html" target="_blank" class="nav-link">Inicio</a> </li>
+                </ul>
+                <br>
+                <br>
+                <h1 class="text-secondary text-center">Registro de Maquinaria</h1>
+                <br>
+                <br>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container fluid">
+    
+        <form method="POST" name="frm" id="frm" action="gracias.html" class="font-weight-bold text-dark">
+    
+        <div class="row p-2">
+            <div class="col col-6">
+                <label for="referencia">Número de referencia</label>
+                <input type="text" name="referencia" id="referencia" class="form-control" required>
+            </div>
+            <div class="col col-6">
+                <label for="nombre">Nombre de la máquina</label>
+                <input type="text" name="nombre" id="nombre" required class="form-control" required>
+            </div>        
+        </div> 
+        
+        <div class="row p-2">
+            <div class="col col-6">
+                <label for="valor">Valor de la máquina</label>
+                <input type="number" name="valor" id="valor" required class="form-control" required>
+            </div>
+            <div class="col col-6">
+                <label for="tipo">Tipo de Máquina</label>
+                <select name="tipo" id="tipo" class="form-control" required>
+                    <option value="">Seleccione</option>
+                    <option value="E">Exterior</option>
+                    <option value="I">Interior</option>
+                  </select>
+            </div>
+        </div>
+        
+        <div class="row p-2">
+            <div class="col col-12">
+                <label for="comentarios">Observaciones</label>
+                <textarea name="comentarios" id="comentarios" cols="" rows="10" class="form-control" required></textarea>
+            </div>
+        </div>
+        
+        <div class="row p-2">
+            <div class="col col-12">
+               <input type="checkbox" name="acepto" id="acepto" required> <a href="" data-toggle="modal" data-target="#exampleModal">Acepto términos y condiciones</a>          
+            </div>
+        </div>
+        
+        <div class="row p-2">
+            <div class="col col-12 text-center">
+                <button name="boton" id="boton" class="btn btn-primary btn-lg" formaction="gracias.html" formtarget="_blank" type="submit">Guardar</button>
+            </div>
+        </div>
+
+        <div class="row p-2">
+            <div class="col col-12 text-center">
+                <input class="btn btn-secondary" type="reset" value="Borrar">
+            </div>
+        </div>
+
+        
+    
+        </form>
+        
+    </div> <!--container-->
+
+</body>
+
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+</html>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Políticas de acceso al sitio</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            Acepto el uso de esta información para el registro de mi máquina
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-primary">Guardar</button>
+        </div>
+      </div>
+    </div>
+  </div>

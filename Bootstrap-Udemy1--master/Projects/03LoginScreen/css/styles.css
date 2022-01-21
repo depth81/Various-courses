@@ -1,0 +1,19 @@
+body{
+    background: url(../images/skyscraper.jpg) no-repeat center center fixed;
+    background-color: #464646;
+    background-size: cover;
+}
+
+#img_logo{
+    max-width: 150px;
+    max-height: 150px;
+    margin: 0 auto;
+}
+
+#login_modal .modal-dialog{
+    width: 350px;
+}
+
+#login_modal input[type=text], input[type=password]{
+    margin-top: 10px;
+} 

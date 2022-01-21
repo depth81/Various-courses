@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuevos selectores CSS 3.0</title>
+
+    <style>
+        #principal{
+            width: 500px;
+            /*background-color: blueviolet;*/
+            text-align: center;
+            margin: 45px auto;
+            padding: 15px;
+            border: 3px solid crimson;
+            border-radius: 20px 5px 15px 40px;
+            box-shadow: coral 10px 10px 10px;
+            /*background: -moz-linear-gradient(left, #a4a4ea,#2c2ceb 65%);
+            background: -webkit-linear-gradient(left, #a4a4ea,#2c2ceb);
+            background: -moz-linear-gradient(left, #a4a4ea,#2c2ceb);
+            background: -o-linear-gradient(left, #a4a4ea,#2c2ceb); */
+            background: -moz-radial-gradient(center, ellipse, #2ceb7e,#eb792c);
+            /*outline: 2px dashed #2c65eb;
+            outline-offset: 15px;*/
+            /*-moz-transform:scale(1,-1);*/
+            /*-moz-transform: rotate(5deg);*/
+            /*-moz-transform: skew(60deg);*/
+            -moz-transition:-moz-transform 1s ease 0.5s;
+        }
+
+        #principal:hover{
+            -moz-transform: rotate(5deg);
+        }
+
+        @font-face {
+            font-family: 'miPropiaFuente';
+            src: url('03959_BauhausRegular.ttf');
+        }
+
+        #titulo{
+            font: bold 36px 'miPropiaFuente';
+            text-shadow: burlywood 3px 3px 5px;
+            color: rgba(0, 0, 0, 0.5);
+        }
+    </style>
+
+</head>
+<body>
+    
+    <header id="principal">
+        <span id="titulo">Estilos CSS 3.0</span>
+    </header>
+
+</body>
+</html>

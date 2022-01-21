@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Noticias varias</title>
+<link href="externa.css" rel="stylesheet">
+<style>
+#noticias li {
+	display: inline-block;
+	margin-right: 30px;
+}
+#noticias li a {
+	padding: 5px 10px; 
+	background-color: white;
+	color: black;
+	text-decoration: none;	
+}
+#noticias li a:hover {
+	background-color: rgb(255,153,0);
+	color: white;
+}
+#contenidos_externos #noticia {
+	margin-top: 10px;
+	padding: 20px;
+	border: 1px solid white;	
+}
+</style>
+<!-- <script src="../Jquery/jquery-2.1.3.js"></script> -->
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
+
+<script>
+
+$(document).ready(function() {
+
+	$("#login").submit(function(){
+
+		//Todo esto se va a ejecutar cuando enviemos el formulario.
+
+		//Crear un literal o paquete con la información del formulario. Formato {nombre:valor}
+		/* var datosFormulario = {usuario:$("#usuario").val(),
+		contra:$("#contra").val()}  */
+
+		//Si son muchos campos de formulario se usa serialize(). 'this' se refriere al #login. serializa() recorre todos los campos del formulario (#login) y los va almacenando en datosFormulario.
+		var datosFormulario = $(this).serialize();
+
+		//Enviar el paquete al servidor. GET se usa para acciones de consulta y el POST se usa para hacer modificaciones en el servidor remoto. Funciones encadenadas para procesar errores con el método fail()
+		$.get("login.php", datosFormulario, procesarDatos).fail(procesarError);
+		
+		//Para que el formulario no se cargue en una página nueva (tarea por defecto del evento submit()).
+		return false
+		
+	});
+
+	//Procesar la respuesta del servidor (se almacena en el parámetro 'datos_devueltos'). ('Autorizado' o 'falso' que es lo que devuelve el archivo php)
+	function procesarDatos(datos_devueltos){
+
+		if(datos_devueltos==="autorizado"){
+
+			$("#contenidos_externos").html("<p> Usuario correcto. Bienvenido de nuevo </p>")
+
+		}else{
+
+			$("#contenidos_externos").html("<p> Usuario no autorizado</p>")
+
+		}
+
+	}
+
+	function procesarError(){
+
+		var msgError = "Ooops! Ha ocurrido algo inesperado. Intenta de nuevo más tarde.";
+
+		$("#contenidos_externos").html("<p>" + msgError + "</p>");
+
+	}
+		
+}); 
+</script>
+</head>
+<body>
+
+	<div class="cabecera">
+		<p class="logo">Procesando respuesta del servidor</p>
+	</div>
+	<div class="contenido">
+		<div class="principal">
+			<form method="get" action="login.php" id="login">
+            <table>
+            	<tr>
+                	<td>					
+						<label for="usuario">Usuario:</label>
+                    </td>
+                    <td>
+						<input type="text" name="usuario" id="usuario">
+					</td>
+                    </tr>
+                    <tr>
+                    <td>
+						<label for="contra">Contaseña: </label>
+                     </td>
+                     <td>
+						<input type="text" name="contra" id="contra">
+					</td>
+                    </tr>
+                    <tr>
+                    <td colspan="2" align="center">
+						<input type="submit" name="boton" id="boton" value="Enviar" >
+					</td>
+                    </tr>
+                    </table>
+				</form>
+			<div id="contenidos_externos"></div>
+		</div>
+	</div>
+
+</body>
+</html>

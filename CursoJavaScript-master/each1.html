@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JQuery XIII. Función each y funciones anónimas. Vídeo 41</title>
+
+    <style>
+
+        h1{
+            text-align: center;
+        }
+
+        p{
+            font-size: 22px;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            text-align: justify;
+        }
+
+        #links{
+            width: 20%;
+            margin-left: 45px;
+            border: dashed #000ff0 2px;
+            float: left;
+            padding-bottom: 200px;
+            padding-left: 20px;
+        }
+
+        #links h2{
+            text-align: center;
+        }
+
+        #ultimos{
+            width: 75%;
+            float: left;
+        }
+
+        li{
+            font-weight: bold;
+            font-size: 18px;
+        }
+        
+    </style>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script>
+
+        $(document).ready(function(){
+
+            //Para cada (each) vínculo externo que te encuentres en la página web, realiza las siguientes tareas:
+
+            $("a[href^='https://']").each(function(){
+
+                var linkExterno = $(this).attr("href");
+
+                $("#links").append("<li>" + linkExterno + "</i>");
+
+            });
+
+        });
+
+    </script>
+
+</head>
+<body>
+
+    <h1>Utilizando la función each</h1>
+
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce varius tincidunt placerat. <a href="https://www.google.com/">Ir a Google</a>. Integer quis maximus massa, eget auctor ipsum. Proin posuere erat ut nunc lobortis finibus. Nam varius, odio quis volutpat dapibus, ante mauris eleifend sem, vel sodales ex justo id felis. Morbi malesuada leo id velit tempor aliquam. Etiam sodales gravida facilisis. In vel nisl eu nibh vestibulum suscipit. Ut scelerisque lorem quis egestas facilisis. Nulla laoreet lectus a velit suscipit, quis bibendum justo finibus. Aenean non feugiat nisi. Nam convallis est non lectus luctus fermentum. </p>
+
+    <p>Vivamus nunc diam, blandit quis orci sit amet, rutrum sagittis sapien. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam maximus nec magna ac molestie. Donec ultrices pulvinar mattis. Nam quis fermentum sem. <a href="https://www.lipsum.com/feed/html">Ir a Lorem Ipsum</a> Phasellus bibendum magna ut sagittis pellentesque. Vestibulum pulvinar, augue id ornare ultricies, nulla lectus molestie mauris, eu sagittis est metus a tellus. Nullam blandit imperdiet pellentesque. Suspendisse auctor felis vitae quam consectetur, et molestie tellus pharetra. Donec commodo non ante convallis eleifend. Nunc at posuere nisl. </p>
+
+    <div id="ultimos"><p>Fusce eget est ipsum. <a href="https://news.google.com/topstories?hl=es-419&gl=CO&ceid=CO:es-419">Ir a Google News</a> Praesent nunc dolor, posuere quis vehicula ut, finibus ac lectus. Donec molestie feugiat orci, vitae convallis dui volutpat vel. Nulla vel tempus nulla. Nulla fermentum, enim ut commodo vehicula, mauris mauris blandit orci, id rutrum urna quam sed lacus. Nullam dapibus ligula at blandit tristique. Quisque eu consequat magna. Cras pellentesque mi eget sem maximus elementum. Proin ac metus congue, ornare quam vitae, consequat ex. Phasellus dictum ultricies leo vitae lobortis. Maecenas lobortis nulla sed commodo commodo. Maecenas tristique fermentum vehicula. </p>
+
+    <p>Etiam elementum dui sed egestas ullamcorper. Vivamus dignissim nunc volutpat tristique tincidunt. Nam volutpat quam vitae dolor facilisis, ac molestie felis fringilla. Pellentesque condimentum urna vel dapibus placerat. <a href="https://artsandculture.google.com/?hl=es">Ir a Google Wonders</a> Etiam dictum id metus id tempus. Etiam varius erat a blandit ultricies. Sed egestas nisl elit, id ultrices ipsum convallis vitae. Ut in tortor eget mauris rutrum congue vel pellentesque est. Phasellus posuere faucibus massa eu ornare. Vestibulum porttitor congue fermentum. Nunc in est libero. Sed sagittis lorem eu eros accumsan, venenatis mollis ante efficitur. Duis at porta orci, quis vestibulum lacus. Sed vitae dolor augue. Nunc posuere euismod sem a lobortis</p>
+
+    <p>Vestibulum lacinia, purus non scelerisque lacinia, eros arcu suscipit dui, vel tristique odio tellus vel sem. <a href="https://www.google.com/maps">Ir a Google Maps</a> Maecenas sed ante eget velit varius rhoncus non nec ligula. Sed ut vulputate nisi. Vestibulum eget erat est. In accumsan odio massa, eget vestibulum sem convallis et. Cras egestas ut massa ac vestibulum. Morbi auctor tellus quis nunc maximus aliquet. Duis auctor velit in tellus suscipit, sed varius enim volutpat. Etiam tincidunt faucibus diam, quis posuere mauris mattis at. Pellentesque tincidunt ornare maximus. </p> </div>
+
+    <div id="links">
+        <h2>Links utilizados</h2>
+    </div>
+    
+</body>
+</html>

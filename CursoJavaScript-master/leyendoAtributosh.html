@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> JQuery XI Leyendo y cambiando atributos HTML I. Vídeo 39</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script>
+
+        $(document).ready(function(){
+
+            document.getElementById("img1").addEventListener("mouseover",cambiar,false);
+
+            document.getElementById("img1").addEventListener("mouseout",restaurar,false);
+
+        });
+
+        function cambiar(){
+
+            //Al pasar el ratón por encima de la imágen, cambia el atributo "src". Cambia una imágen por otra.
+            $("img").attr("src","img/forest1.jpg");
+
+        }
+
+        function restaurar(){
+
+            $("img").attr("src","img/forest.jpg");
+
+        }
+
+    </script>
+
+</head>
+<body>
+    
+    <img src="img/forest.jpg" alt="forest" id="img1">
+
+</body>
+</html>

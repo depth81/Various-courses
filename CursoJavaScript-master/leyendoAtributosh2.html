@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JQuery XII Leyendo y cambiando atributos HTML II. Vídeo 40</title>
+
+    <style>
+
+        #contenedor1{
+            position: absolute;
+            left: 67px;
+            top: 177px;
+            width: 408px;
+            height: 298px;
+            z-index: 1;
+        }
+
+        #contenedor2{
+            position: absolute;
+            left: 510px;
+            top: 176px;
+            width: 443px;
+            height: 297px;
+            z-index: 2;
+        }
+
+        ul{
+            list-style: none;
+        }
+
+        li{
+            margin: 10px 0;
+            font-size: 24px;
+            width: 95px;
+        }
+
+        .destacar{
+            background-color: #ff0000;
+            color: #ffffff;
+        }
+
+    </style>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script>
+
+        $(document).ready(function(){
+            
+            var elementos = document.querySelectorAll("li");
+
+            for(var i=0; i<elementos.length; i++){
+
+                elementos[i].addEventListener("mouseover",ponImagen, false);
+                
+                elementos[i].addEventListener("mouseout",quitaImagen,false);
+
+            }
+
+        });
+
+        function ponImagen(e){
+
+            if(e.target==elem1){
+
+                $("#elem1").addClass("destacar");
+
+                $("img").attr("src","img/forest1.jpg");
+
+            }
+            else if(e.target==elem2){
+
+                $("#elem2").addClass("destacar");
+
+                $("img").attr("src","img/forest2.jpg");
+
+            }
+            else if(e.target==elem3){
+
+                $("#elem3").addClass("destacar");
+
+                $("img").attr("src","img/forest3.jpg");
+
+            }
+            else if(e.target==elem4){
+
+                $("#elem4").addClass("destacar");
+
+                $("img").attr("src","img/forest4.jpg");
+
+            }
+
+        }
+
+        function quitaImagen(e){
+
+            if(e.target==elem1){
+
+                $("#elem1").removeClass("destacar");
+
+                //Remover el atributo html
+                $("img").removeAttr("src");
+
+            }
+            else if(e.target==elem2){
+
+                $("#elem2").removeClass("destacar");
+
+                //Remover el atributo html
+                $("img").removeAttr("src");
+
+            }
+            else if(e.target==elem3){
+
+                $("#elem3").removeClass("destacar");
+
+                //Remover el atributo html
+                $("img").removeAttr("src");
+
+            }
+            else if(e.target==elem4){
+
+                $("#elem4").removeClass("destacar");
+
+                //Remover el atributo html
+                $("img").removeAttr("src");
+
+            }
+
+        }
+
+    </script>
+
+</head>
+<body>
+
+    <div id="contenedor1">
+        <ul>
+            <li id="elem1">Imágen 1</li>
+            <li id="elem2">Imágen 2</li>
+            <li id="elem3">Imágen 3</li>
+            <li id="elem4">Imágen 4</li>
+        </ul>
+    </div>
+
+    <div id="contenedor2">
+        <img src="" id="">
+    </div>
+    
+</body>
+</html>

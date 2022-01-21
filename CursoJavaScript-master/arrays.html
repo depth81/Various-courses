@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Usando Arrays</title>
+<link rel="stylesheet" href="css/micss.css">
+<script>
+
+  var articulos = ["zapatillas", "camiseta", "pantalón","Calcetines"];
+
+  /* var articulos = new array("zapatillas", "camiseta", "pantalón","Calcetines"); */
+
+  //var articulos = []; 
+                    
+	
+</script>
+</head>
+
+<body>
+<div class="contenedor">
+  <div class="header">
+    <p class="logo">JavaScript Arrays <i class="mm">Píldoras Informáticas
+     </p>
+  </div>
+  <div class="contenido">
+    <div class="principal">
+      <h1>Manejando Arrays</h1>
+      <script>
+	  
+        document.write("<p> El primer artículo es  <strong>");
+		
+        document.write(articulos[0] + "</strong></p>");
+
+        //alert(articulos.length);
+
+        document.write("<p>El último elemento es <strong>");
+
+        document.write(articulos[articulos.length-1] + "</strong></p>");
+
+        articulos.unshift("Balón"); //añadir un elemento en la primera posición del arreglo (índice 0).
+
+        document.write("<p> Casi nos olvidamos!, agregamos este elemento: <strong>");
+        
+        document.write(articulos[0] + "</strong></p>");
+        
+        document.write("<p>Agreguemos un elemento más al final: <strong>");
+
+        articulos.push(prompt("Introduce el artículo"));
+
+        document.write(articulos[articulos.length-1] + "</strong></p>");
+
+       document.write("<p> Mostremos otro elemento: <strong>" + articulos[articulos.length-2] + "</strong></p>");
+
+       document.write("<p>" + articulos[0] + "<br/>");
+       document.write(articulos[1] + "<br/>");
+       document.write(articulos[2] + "<br/>");
+       document.write(articulos[3] + "<br/>");
+       document.write(articulos[4] + "<br/>");
+       document.write(articulos[5] + "<br/></p>");
+
+       /*elemento sin formato. No se incluye la etiqueta <p></p>
+       document.write("elemento sin formato: " + articulos[articulos.length-2]);*/
+
+       //eliminar el primer elemento del arreglo
+       alert("Borraremos el primer elemento");
+       articulos.shift();
+
+       document.write("<p>" + articulos[0] + "<br/>");
+       document.write(articulos[1] + "<br/>");
+       document.write(articulos[2] + "<br/>");
+       document.write(articulos[3] + "<br/>");
+       document.write(articulos[4] + "<br/></p>");
+
+       //Borrar el último elemento del arreglo
+       alert("Borraremos el último elemento");
+       articulos.pop();
+       
+       document.write("<p>" + articulos[0] + "<br/>");
+       document.write(articulos[1] + "<br/>");
+       document.write(articulos[2] + "<br/>");
+       document.write(articulos[3] + "<br/></p>");
+
+	   </script>
+    </div>
+  </div>
+  
+</div>
+</body>
+</html>

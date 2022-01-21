@@ -1,0 +1,168 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Formularios I</title>
+<style>
+
+body{
+	background-color:#FFC;
+}
+
+#principal{
+	
+	padding:10px 10px 10px 50px;
+	background-color:#F93;	
+	box-shadow: 10px 10px 5px 0px #999999;
+	border-radius: 10px;
+}
+
+td{
+	padding-bottom:25px;
+}
+h1{
+	text-align:center;
+}
+
+
+</style>
+<script src="Jquery/jquery-1.6.3.min.js"></script>
+
+<script>
+
+	$(document).ready(function() {
+    
+    //Este código JS se va a ejecutar solamente después que se descargue todo el documento HTML en el navegador.
+
+    //Poner el botón "comprobar" a la escucha del evento "click"
+    $("#comprobar").click(comprobarDatos);
+
+  });
+
+  function comprobarDatos(){
+
+    //Mostrar el valor que hay dentro del objeto "nombre" con val() (función que pertenece a JQuery).
+    //alert($("#nombre").val());
+
+    //Para hacer operaciones más complejas se puede guardar el valor del campo de texto "nombre" en una variable.
+    //var miNombre = $("#nombre").val();
+
+    //alert("El nombre del usuario es: " + miNombre);
+
+    /*Para acceder a todos los elementos de un tipo en concreto de un formulario mirar el atributo 'type' de la etiqueta html '<input>'. Para un cuadro de texto es 'text' y así con todos los diferentes tipos como 'radio', 'checkbox', etc. y usar la siguiente instrucción: (":text").
+    También se puede usar (":input")*/
+    //$(":text").each(function(){
+
+      //Este código se va a ejecutar para cada elemento text.
+      //alert($(this).val());
+
+      if($("#masculino").attr("checked")){
+
+        alert("Eres Hombre");
+
+      }
+      else{
+
+        alert("Eres Mujer");
+
+      }
+
+      if($("#deporte").attr("checked")){
+
+        alert("Eres deportista");
+
+        }
+        else{
+
+        alert("Eres sedentario");
+
+      }
+
+  }
+  
+</script>
+</head>
+
+<body>
+<h1>Envío de datos</h1>
+<div id="contenedor">
+<form id="form_datos">
+  <table width="20%" border="0" align="center" id="principal">
+    <tr>
+      <td>Nombre:</td>
+      <td><label for="nombre"></label>
+        <input type="text" name="nombre" id="nombre" value="Obligatorio nombre"></td>
+    </tr>
+    <tr>
+      <td>Apellido:</td>
+      <td><input type="text" name="apellido" id="apellido"></td>
+    </tr>
+    <tr>
+      <td>Edad:</td>
+      <td><input type="text" name="edad" id="edad"></td>
+    </tr>
+    <tr>
+      <td>Género:</td>
+      <td><p>
+        <label>
+          <input type="radio" name="genero" value="Masculino" id="masculino">
+          masculino</label>
+        <br>
+        <label>
+          <input type="radio" name="genero" value="Femenino" id="femenino">
+          femenino</label>
+        <br>
+      </p></td>
+    </tr>
+    <tr>
+      <td>País:</td>
+      <td><label for="pais"></label>
+        <select name="pais" id="pais">
+          <option>España</option>
+          <option>México</option>
+          <option>Colombia</option>
+          <option>Perú</option>
+          <option>Chile</option>
+          <option>Argentina</option>
+        </select></td>
+    </tr>
+    <tr>
+      <td>Aficiones:</td>
+      <td><table width="200">
+        <tr>
+          <td><label>
+            <input type="checkbox" name="deporte" value="Deporte" id="deporte">
+            deporte</label></td>
+          <td><label>
+            <input type="checkbox" name="informatica" value="Informática" id="informatica">
+            informatica</label></td>
+        </tr>
+        <tr>
+          <td><label>
+            <input type="checkbox" name="lectura" value="Lectura" id="lectura">
+            lectura</label></td>
+          <td><label>
+            <input type="checkbox" name="cine" value="Cine" id="cine">
+            cine</label></td>
+        </tr>
+        <tr>
+          <td><label>
+            <input type="checkbox" name="bares" value="Bares" id="bares">
+            bares</label></td>
+          <td><label>
+            <input type="checkbox" name="naturaleza" value="Naturaleza" id="naturaleza">
+            Naturaleza</label></td>
+        </tr>
+       
+      </table></td>
+    </tr>
+    <tr>
+    <td colspan="2" align="center"><input type="submit" value="Enviar" id="comprobar"></td>
+   
+    </tr>
+  </table>
+  </form>
+</div>
+
+</body>
+</html>

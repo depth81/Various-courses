@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplos JavaScript</title>
+</head>
+<body>
+
+    <pre>En ejte ejemplo vamos a comentar el uso de la consola del navegador y operaciones básicas.</pre>
+    
+</body>
+</html>
+
+<script type="text/Javascript">
+
+    //variables: var que se usa para cambiarlo, let que asigna dentro de funciones y const que permite valores estáticos.
+
+    var a = 10;
+
+    var b = 20;
+
+    var total = a + b;
+
+    //1. Imprimir en la consola del navegador
+
+    console.log(total);
+
+    //2. Usar la función alert()
+
+    //alert(total);
+
+    //concatenar texto con texto y con valores numéricos.
+
+    //console.log("El resultado de la suma de los dos números es: " + total);
+
+    //invocar método que me permite escribir contenido HTML. Se inserta debajo del último contenido HTML creado.
+
+    //document.write("El resultado de la suma de los dos números es: " + total);
+
+    //Funciones o Métodos let. functions <==> arrows
+
+    function operadores(a,b,tipo){
+
+        /*Dependiendo del parámetro 'tipo' realiza algunas operaciones
+          tipo operador: +, -, /, *
+          a y b son valores numéricos.
+        */
+        if (tipo=="+"){
+            total = a + b;
+        }
+        else if(tipo=="*"){
+            total = a * b;
+        }
+        else if(tipo=="/"){
+            total = a / b;
+        }
+        else if(tipo=="-"){
+            total = a - b;
+        }
+        else{
+            total = "La operación no es válida";
+        }
+
+        resultado = "La operación con " + tipo + " es: " + total;
+
+        return resultado;
+    }
+
+    //Ejectuar o aplicar la función
+
+    //alert, console, document.write;
+    
+    //alert(operadores(50,26,"/"));
+
+    console.log(operadores(50,26,"*"));
+    document.write(operadores(50,26,"-"));
+
+</script>

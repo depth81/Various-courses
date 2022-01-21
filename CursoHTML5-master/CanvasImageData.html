@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Canvas VIII. Transformaciones. Vídeo 33</title>
+
+    <style>
+
+        #lienzo{
+            border: 1px solid #ff0000;
+        }
+
+       section{
+            width: 1200px;
+            position: relative;
+            margin: auto;
+        } 
+
+    </style>
+
+
+    <script>
+
+        function comenzar(){
+
+            var elemento = document.getElementById("lienzo");
+
+            lienzo = elemento.getContext("2d"); 
+            
+            var imagen = new Image();
+
+            imagen.src="img/1.jpg";
+
+            imagen.addEventListener("load", manipularImagen, false);     
+
+        }
+
+        function manipularImagen(e){
+
+            //e es el evento desencadenado
+
+            imagen = e.target;
+
+            lienzo.drawImage(imagen,0,0);
+
+            //Guardar la información (rgba x píxel) que rescata getImageData. Recortar un pedazo de la imágen (145px145p) que tiene originalmente 200px200p. infoImagen es un array.
+            var infoImagen = lienzo.getImageData(0,0,145,145);
+
+            //por cada píxel, getImageData almacena:
+            //infoImagen[0]=125 (Red)
+            //infoImagen[1]=250 (Green)
+            //infoImagen[2]=115 (Blue)
+            //infoImagen[3]=60 (Alfa)
+            //infoImagen[4]=130 (Red) del siguiente píxel..
+            //en realidad getImageData no almacena ordenadamente, como en la descripción anterior. Almacena los datos desordenadamente en el array.
+            var posicion;
+
+            //Recorrer horizontalmente los píxeles del recorte de la imágen (145px145p)
+            for(var x=0; x<=145; x++){
+
+                //Recorrer verticalmente los píxeles del recorte.
+                for(var y=0; y<=145; y++){
+
+                    //Acceder a la posición RED en el array en concreto de un píxel. Después [posicion+1] -> GREEN, [posicion+2] -> BLUE. El parámetro alfa no se usó pero sería [posicion+3]
+                    posicion = (infoImagen.width*4*y)+(x*4); //RED
+
+                    //Modificar = Rescatar la información del RED y darle la vuelta (sacar el negativo)
+                    infoImagen.data[posicion]= 255 - infoImagen.data[posicion];
+
+                    //negativo del GREEN
+                    infoImagen.data[posicion+1]=255-infoImagen.data[posicion+1];
+
+                    //negativo del BLUE
+                    infoImagen.data[posicion+2]=255-infoImagen.data[posicion+2];
+        
+                }
+
+              }
+
+            //En infoImagen hay un recorte manipulado (el negativo) de la imágen y con putImageData se posiciona esa información manipulada en el Canvas en las coordenadas indicadas.
+
+            lienzo.putImageData(infoImagen,200,200);
+
+            }
+
+        
+
+        window.addEventListener("load", comenzar, false);
+
+    </script>
+
+</head>
+<body>
+
+    <section>
+
+        <canvas width="1200" height="900" id="lienzo">
+
+            Su navegador no admite el elemento Canvas.
+
+        </canvas>
+
+    </section>
+    
+</body>
+</html>

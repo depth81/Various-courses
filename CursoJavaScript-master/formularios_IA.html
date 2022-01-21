@@ -1,0 +1,218 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Formularios I</title>
+<style>
+
+body{
+	background-color:#FFC;
+}
+
+#principal{
+	
+	padding:10px 10px 10px 50px;
+	background-color:#F93;	
+	box-shadow: 10px 10px 5px 0px #999999;
+	border-radius: 10px;
+}
+
+td{
+	padding-bottom:25px;
+}
+h1{
+	text-align:center;
+}
+
+</style>
+
+<script src="Jquery/jquery-1.6.3.min.js"></script>
+
+<script>
+
+	$(document).ready(function() {
+    
+    //Este código JS se va a ejecutar solamente después que se descargue todo el documento HTML en el navegador.
+
+    //Cuando el campo nombre coja el foco, el texto por defecto debe desaparecer.
+    $("#nombre").focus(function(){
+
+      //Almacenar el cuadro de texto nombre. 'this' se usa porque estamos dentro del campo de texto nombre al cual he identificado previamente en la línea anterior. Cuando queremos nombrar dentro de un código al objeto dentro del cual nos encontramos en el código, usamos la palabra reservada 'this'.
+      var campoNombre = $(this);
+
+      //Cuando coja el foco en el campo de texto 'nombre', comprobar que el valor del campo 'nombre' o cuadro de texto es igual al atributo 'value' (cuando carga la página por primera vez es 'Obligatorio Nombre') del cuadro de texto?. Si el usuario pone su nombre, el if no se cumple porque el valor del campo (campoNombre) sería el nombre pero el atributo value es 'Obligatorio Nombre'.
+      if (campoNombre.val()==campoNombre.attr("value")){
+
+        campoNombre.val("");
+
+      }
+
+    });
+
+    $("#form_datos").submit(function(){
+
+      //ver si en el cuadro de texto hay algo escrito...
+      if($("#nombre").val()=="" || $("#nombre").val()=="Obligatorio Nombre"  ){
+
+        alert("Por favor completa el nombre");
+
+        //El campo nombre de coger el foco automáticamente después del mensaje de advertencia. función de la librería JQuery: focus().
+        $("#nombre").focus();
+
+        //Si el nombre está vacío, que salga la advertencia y NO envíe la información del formulario a la BD.
+        return false;
+
+      }
+
+    }); //end submit()
+
+    //Se desencadena el código cuando el campo 'edad' pierda el foco.
+    $("#edad").blur(function(){
+
+      //Almacenar en una variable el valor del cuadro de texto 'edad' o lo que el usuario ha introducido.
+      var edadUsuario = $(this).val();
+
+      //evaluar si lo que se ha introducido es un número?
+      if(isNaN(edadUsuario)){
+
+        alert("Por favor introduce un valor numérico");
+
+        //El cursor vuelve al campo edad. Retorna el foco. 'this' = 'edad'
+        $(this).focus();
+
+        //Borrar el dato introducido después de recuperar el foco.
+        $(this).val("");
+
+      }
+
+    }); //end blur()
+
+    //Identificar los elementos 'radio'. El evento será click en el botón de radio.
+    $(":radio").click(function(){
+
+      //Rescatar el valor del botón de radio pulsado (M o F)
+      alert($(this).val());
+
+    })
+
+    //Guardar las aficiones (checkbox) en un array[]
+    var miArreglo = new Array();
+
+    var i=0;
+
+    //Con los checkbox...
+    $(":checkbox").click(function(){
+
+      //Guardar en la posición i el valor del checkbox señalado con el click.
+      miArreglo[i] = $(this).val();
+
+      //Rescatar el valor del botón de radio pulsado (M o F)
+      //alert("Posición " + i + " " + miArreglo[i]);
+
+      //Agregar elementos a un contenedor <div>
+      $("#Aficiones").append(miArreglo[i]).append("<br>");
+
+      i++;
+
+    })
+
+    //Usando la lista desplegable de países. Usar la función change() la cual desencadena la acción solamente cuando cambia la información del menú desplegable.
+    $("#pais").change(function(){
+
+      alert("País de residencia " + $(this).val());
+
+    })
+
+  });  //end ready()
+
+</script>
+
+</head>
+
+<body>
+<h1>Envío de datos</h1>
+<div id="contenedor">
+<form id="form_datos">
+  <table width="20%" border="0" align="center" id="principal">
+    <tr>
+      <td>Nombre:</td>
+      <td><label for="nombre"></label>
+        <input type="text" name="nombre" id="nombre" value="Obligatorio Nombre"></td>
+    </tr>
+    <tr>
+      <td>Apellido:</td>
+      <td><input type="text" name="apellido" id="apellido"></td>
+    </tr>
+    <tr>
+      <td>Edad:</td>
+      <td><input type="text" name="edad" id="edad"></td>
+    </tr>
+    <tr>
+      <td>Género:</td>
+      <td><p>
+        <label>
+          <input type="radio" name="genero" value="Masculino" id="masculino">
+          masculino</label>
+        <br>
+        <label>
+          <input type="radio" name="genero" value="Femenino" id="femenino">
+          femenino</label>
+        <br>
+      </p></td>
+    </tr>
+    <tr>
+      <td>País:</td>
+      <td><label for="pais"></label>
+        <select name="pais" id="pais">
+          <option>España</option>
+          <option>México</option>
+          <option>Colombia</option>
+          <option>Perú</option>
+          <option>Chile</option>
+          <option>Argentina</option>
+        </select></td>
+    </tr>
+    <tr>
+      <td>Aficiones:</td>
+      <td><table width="200">
+        <tr>
+          <td><label>
+            <input type="checkbox" name="deporte" value="Deporte" id="deporte">
+            deporte</label></td>
+          <td><label>
+            <input type="checkbox" name="informatica" value="Informática" id="informatica">
+            informatica</label></td>
+        </tr>
+        <tr>
+          <td><label>
+            <input type="checkbox" name="lectura" value="Lectura" id="lectura">
+            lectura</label></td>
+          <td><label>
+            <input type="checkbox" name="cine" value="Cine" id="cine">
+            cine</label></td>
+        </tr>
+        <tr>
+          <td><label>
+            <input type="checkbox" name="bares" value="Bares" id="bares">
+            bares</label></td>
+          <td><label>
+            <input type="checkbox" name="naturaleza" value="Naturaleza" id="naturaleza">
+            Naturaleza</label></td>
+        </tr>
+       
+      </table></td>
+    </tr>
+    <tr>
+    <td colspan="2" align="center"><input type="submit" value="Enviar" id="comprobar"></td>
+   
+    </tr>
+  </table>
+  </form>
+</div>
+
+<div id="Aficiones">
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,125 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Cambiando atributos CSS</title>
+<style>
+
+.linkdestacacursos{
+	/*background-color:#F00;*/
+	color: #f00;
+	font-weight: bold;
+	margin-left: 25px;		
+}
+
+.linkdestacainformacion{
+	color:green;
+	font-weight: bold;
+	margin-left: 25px;	
+}
+
+a{
+	display:block;
+	margin-bottom:20px;
+	font-size:24px;
+}
+
+table{
+	text-align:center;
+	border:none;
+}
+
+td{
+	border:none;
+}
+
+#contieneEnlaces{
+	position: absolute;
+	left: 31px;
+	top: 65px;
+	width: 400px;
+	height: 649px;
+	z-index: 1;
+	padding-top:100px;
+}
+
+</style>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script>
+
+	$(document).ready(function(){
+
+		// $("a[href^='https://']").addClass("linkdestacacursos");
+
+		document.getElementById("cursos").addEventListener("click",resaltaCursos, false);
+
+		document.getElementById("informacion").addEventListener("click",resaltaEjemplos,false);
+
+	});
+
+	function resaltaCursos(){
+
+		$(".ejemplos").removeClass("linkdestacainformacion");
+
+		$(".cursos").addClass("linkdestacacursos");
+
+		//$(".cursos").toggleClass("linkdestacacursos");
+
+	}
+
+	function resaltaEjemplos(){
+
+		$(".cursos").removeClass("linkdestacacursos");
+
+		$(".ejemplos").addClass("linkdestacainformacion");
+
+		//$(".ejemplos").toggleClass("linkdestacainformacion");
+
+	}
+
+</script>
+
+</head>
+
+<body>
+
+<div id="contieneEnlaces">
+
+<a href="http://www.pildorasinformaticas.com" target="_blank" class="cursos">
+Píldoras informáticas
+</a><br>
+
+<a href="http://www.google.com" target="_blank" class="ejemplos">
+Google
+</a><br>
+
+<a href="https://www.youtube.com/user/pildorasinformaticas" target="_blank" class="cursos">
+Píldoras informáticas YouTube
+</a><br>
+
+<a href="removeReplaceJQ.html" target="_blank" >
+Remover y reemplazar
+</a><br>
+
+<a href="https://news.google.es/" target="_blank" class="ejemplos">
+Noticias google
+</a><br>
+
+<a href="calculadoraArcaica.html" target="_blank" >
+Calculadora
+</a>
+</div>
+
+<table width="100%" border="1">
+<tr>
+<td>Cursos destacados&nbsp;&nbsp;<input type="radio" name="misBotones"  value="Cursos" id="cursos"></td>
+<td>Información adicional&nbsp;&nbsp;<input type="radio" name="misBotones" value="Información" id="informacion"></td>
+</tr>
+
+
+
+
+</body>
+</html>

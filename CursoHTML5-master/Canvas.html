@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Canvas I</title>
+
+    <style>
+
+        #lienzo{
+            background-color: aquamarine;
+        }
+
+        section{
+            width: 500px;
+            position: relative;
+            margin: auto;
+        }
+        
+    </style>
+
+    <script>
+
+        window.addEventListener("load",comenzar,false);
+
+        function comenzar(){
+
+            var elemento = document.getElementById("lienzo");
+
+            lienzo = elemento.getContext("2d");
+
+            lienzo.strokeStyle = "#1283e3";
+
+            lienzo.fillStyle = "#9712e3";
+
+            lienzo.globalAlpha = 0.5; //0 a 1 -> opaco a transparente.
+            
+            lienzo.strokeRect(100,100,120,120);
+
+            lienzo.fillRect(110,110,100,100);
+
+            lienzo.clearRect(120,120,80,80);
+            
+        }
+
+    </script>
+
+</head>
+<body>
+    
+    <section id="dibujo">
+
+        <canvas id="lienzo" width="500px" height="300px">
+
+
+
+        </canvas>
+
+    </section>
+
+
+</body>
+</html>

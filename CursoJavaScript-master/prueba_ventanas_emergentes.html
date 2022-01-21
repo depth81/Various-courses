@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Ventanas emergentes e Iframes I</title>
+<script src="Jquery/jquery-1.6.3.min.js"></script>
+<script>
+
+    
+
+    $(document).ready(function(){
+
+        var propiedades = "width=300,height=200, left=300, top=300";
+
+        var miVentana = open("http://www.pildorasinformaticas.es","Pildoras",propiedades);  
+        //Abrir ventana emergente con la dirección web indicada como parámetro. Se almacena en la variable miVentana.
+        
+        /*open("http://www.pildorasinformaticas.es","Pildoras2","width=300,height=200, left=600, top=100"); 
+
+        open("http://www.pildorasinformaticas.es","Pildoras3","width=300,height=200, left=900, top=500"); */
+
+        $("#botonCerrar").click(function(e){
+
+            e.preventDefault(); //Anular el comportamiento por defecto del vínculo <a>.
+            
+            miVentana.close();  //Cerrar la ventana emergente.
+
+        });
+
+    })
+    
+    
+	
+
+</script>
+</head>
+
+<body>
+<a href="http://www.pildorasinformaticas.es">Ir a Píldoras</a>
+<br><br><br>
+<a href="" id="botonCerrar">Cerrar</a>
+</body>
+</html>

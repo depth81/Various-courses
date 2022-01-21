@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo de formularios</title>
+</head>
+
+<body leftmargin="30">
+
+    <font face="arial" size="+1">
+    
+    <h1 align="center">Formulario de registro de clientes</h1>
+
+    <!--
+        La etiqueta nos permite crear formularios que envían datos hacia otras páginas, correos o la misma.
+        Los atributos que contiene el formulario son:
+        *form
+        *name
+        *id
+        *method = método de envío de datos (GET o POST)
+        Siempre por defecto los formularios envían la información con GET (que se pueda ver), pero la idea es que sea POST (información oculta y se puede transformar más información)
+        *action= HAcia dónde se dese enviar los datos. Se pueden enviar a otra página o a la misma página.
+    -->
+
+    <form name="forma" id="forma" method="POST" action="respuesta.html">
+
+    <!--
+        Estos son los diferentes tipos de controles:
+
+        *input ->
+            text - Permite digitar textos o sea alfanuméricos
+            number - Permite solamente números
+            email- Permite solamente fechas
+
+            el input tiene los siguientes atributos:
+            name
+            id
+            maxlength - Tamaño máximo permitido
+            min - Solamente aplica para el tipo number
+            max - Solamente aplica para el tipo number
+        
+        *select -> Permite crear un seleccionador o lista
+            name
+            id
+                La lista se construye usando option
+
+        *Checkbox -> Para chequear un control
+            name
+            id
+            checkbox - Identifica si está chequeado o no
+
+        *Radio -> Es para selección única pero como un check.
+            name
+            id
+            checkbox - Identifica si estpa chequeado o no.
+
+        *textarea -> Está diseñado para digitar bloques de texto
+            name
+            id
+            cols - columnas
+            rows - filas
+        
+        *button ->
+            submit - Permite enviar
+            button - permite aplicarle funciones
+            reset - Permite limpiar el formulario
+            image - Como si fuera una imágen.
+
+    -->
+
+    <p>
+        <label for="nombre">Nombre y apellidos de los clientes</label> 
+        <br>
+        <input type="text" name="nombre" id="nombre" maxlength="58" placeholder="Digite su nombre" required>
+        <br>
+        <button name="enviar" id="enviar">Enviar Formulario</button>
+    </p>
+
+    <p>
+        <label for="nit">NIT / Identificación</label>
+        <br>
+        <input type="number" name="nit" id="nit" min="0" max="99999999" placeholder="digite su nit" required>      
+    </p>
+
+    <p>
+        <button name="enviar" id="enviar">Enviar formulario</button>
+    </p>
+
+    <p>
+        <label for="fechanac">Fecha de nacimiento</label>
+        <br>
+        <input type="date" name="fechanac" id="fechanac" placeholder="fecha de nacimiento" required>
+    </p>
+
+    <p>
+        <label for="correo">Correo electrónico</label>
+        <br>
+        <input type="email" name="correo" id="correo" placeholder="email" required>
+    </p>
+
+    <p>
+       <label for="clave">Digite su clave</label>
+       <br>
+       <input type="password" name="clave" id="clave" placeholder="Digite su clave" maxlength="30"> 
+    </p>
+
+
+    <p>
+        <label for="sexo">Sexo del cliente</label>
+        <select name="sexo" id="sexo">
+            <option value="femenino">Femenino</option>
+            <option value="masculino">Masculino</option>
+            <option value="sinDefinir">sinDefinir</option>
+        </select>
+    </p>
+
+    <p>
+        <label for="comentarios">Digite sus comentarios</label>
+        <br>
+        <textarea name="comentarios" id="comentarios" cols="60" rows="5" placeholder="digite sus comentarios"></textarea>
+    </p>
+
+    <p>
+        <label for="registro">tipo de registro del cliente</label>
+        <br>
+        <input type="radio" name="registro" id="registro" value="invitado">invitado <br>
+        <input type="radio" name="registro" id="registro" value="vip">VIP <br>
+    </p>
+
+    <p>
+
+        <input type="checkbox" name="acepto" id="acepto" required> Acepta términos y condiciones del registro.
+    </p>
+
+    <p>
+        <button name="enviar" id="enviar">Enviar formulario</button>
+    </p>
+
+    </form>
+
+    </font>
+</body>
+</html>

@@ -1,0 +1,64 @@
+/* Aspecto de impresión en papel */
+
+#navegacionPrincipal, #barraLateral, #pieNavega{
+    display: none;
+}
+
+#banner, #contenidoprincipal, #pie, #principal{
+    width: auto;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-image: none;
+}
+
+#piePrincipal{
+    margin: 0;
+}
+
+html, body, #banner, #contenidoPie{
+    background: white;
+}
+
+#banner{
+    /* Ajustar el alto del banner según el contenido (la imágen) */
+    height: auto;
+    text-align: center;
+    /* No usar la unidad de medida pixel, mejor usar puntos (pt) */
+    border-bottom: 2pt solid black;
+    border-top: 2pt solid black;
+    padding: 10pt 0;
+    margin-bottom: 15pt;
+}
+
+/* Selector universal. Todas las etiquetas. A continuación en negro todo el texto de todas las etiquetas de la página. "!important" se usa si hay algún conflicto en la herencia al usar la casacada o al usar la especificidad. En este caso se pone el texto en negro 'sí o sí'. */
+
+*{
+    color: black !important;
+}
+
+h1{
+    font-size: 30pt !important;
+}
+
+h2{
+    font-size: 16pt !important;
+}
+
+p, li{
+    font-size: 11pt !important;
+}
+
+#piePrincipal{
+    margin-top: 15pt;
+    border-top: 1pt solid black;
+    padding-top: 5pt;
+    text-align: justify;
+}
+
+/* Imprimir solamente el contenido de cada vínculo, a dónde nos lleva el vínculo. */
+a:after{
+    content: "("attr(href)")";
+}

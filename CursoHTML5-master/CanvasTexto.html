@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Canvas VII Texto en Canvas. Vídeo 32</title>
+
+    <style>
+
+        #lienzo{
+            border: 1px solid #ff0000;
+        }
+
+        section{
+            width: 800px;
+            position: relative;
+            margin: auto;
+        }
+
+    </style>
+
+    <script>
+
+        function comenzar(){
+
+            var elemento = document.getElementById("lienzo");
+
+            var lienzo = elemento.getContext("2d");
+
+            lienzo.shadowColor="rgba(0,0,0,0.5)";
+
+            lienzo.shadowOffsetX=4;
+
+            lienzo.shadowOffsetY=4;
+
+            lienzo.shadowBlur=5;
+
+            lienzo.font = "bold 48px Verdana";
+
+            lienzo.textAlign = "start";
+
+            lienzo.textBaseline = "top";
+
+            lienzo.fillText("Hola Mundo!", 100, 100);
+
+            //var dimensiones = lienzo.measureText("Hola Mundo!");
+
+            //lienzo.strokeRect(100,100,dimensiones.width+10, 58);
+
+        }
+
+        window.addEventListener("load", comenzar, false);
+
+    </script>
+
+</head>
+  
+<body>
+
+    <section>
+
+        <canvas width="800" height="600" id="lienzo">
+
+            Su navegador no admite el elemento Canvas.
+
+        </canvas>
+
+    </section>
+    
+</body>
+</html>

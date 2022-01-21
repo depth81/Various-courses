@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Canvas VIII. Transformaciones. Vídeo 33</title>
+
+    <style>
+
+        #lienzo{
+            border: 1px solid #ff0000;
+        }
+
+        section{
+            width: 1200px;
+            position: relative;
+            margin: auto;
+        }
+
+    </style>
+
+
+    <script>
+
+        var y=300; 
+
+        var estado="bajando" //la pelota está bajando inicialmente.
+
+        var arriba=y;  //límite superior del bote
+
+        var horizontal=0;
+
+        function comenzar(){
+
+            var elemento = document.getElementById("lienzo");
+
+            // SIN "var" antes de lienzo.
+            lienzo = elemento.getContext("2d"); 
+
+            //llamar a la función animación() que va a dibujar y borrar la esfera en intervalos. Hay que llamarla varias veces y que dibuje la esfera en diferenes posiciones. A continuación se llama a la función animación una vez cada 50 ms.
+            setInterval(animacion,25);
+
+        }
+
+        //Animar la esfera. Borrarla y pintarla en intervalos.
+        function animacion(){
+
+            //Para que la esfera no desaparezca por la parte inferior.
+            if(y<850 && estado=="bajando"){
+            
+                //Borrar todo lo que haya en el Canvas
+                lienzo.clearRect(0,0,1200,900);
+
+                //Comenzar el trazado
+                lienzo.beginPath();
+
+                //Dibujar una esfera que se va moviendo en el eje y cada vez que se llama a animación().
+                lienzo.arc(500+horizontal,y,40,0,Math.PI*2,false);
+
+                //Dibujar una esfera rellena
+                lienzo.fill();
+
+                //incrementar el valor de y.
+                y+=50;
+
+                //Desplazamiento horizontal incrementando a x
+                horizontal+=4;
+
+                }
+            
+            //Ha llegado hasta abajo y tiene que empezar a subir
+            if(y==850){ 
+
+                arriba+=50;
+
+                estado="subiendo"
+
+            }
+
+            if(y>=arriba && estado=="subiendo"){
+
+                //Borrar todo lo que haya en el Canvas
+                lienzo.clearRect(0,0,1200,900);
+
+                //Comenzar el trazado
+                lienzo.beginPath();
+
+                //Dibujar una esfera que se va moviendo en el eje y cada vez que se llama a animación().
+                lienzo.arc(500+horizontal,y,40,0,Math.PI*2,false);
+
+                //Dibujar una esfera rellena
+                lienzo.fill();
+
+                //decrementar el valor de y.
+                y-=50;
+
+                horizontal+=4;
+
+            }
+
+            //La pelota está arriba del todo? cambiar el estada a "bajando"
+
+            if(y==arriba){
+
+                estado="bajando";
+
+            }
+
+            }
+
+        //El navegador permanece a la escucha para que cuando cargue el docuemto HTML llame a la función comenzar().
+        window.addEventListener("load", comenzar, false);
+
+    </script>
+
+</head>
+<body>
+
+    <section>
+
+        <canvas width="1200" height="900" id="lienzo">
+
+            Su navegador no admite el elemento Canvas.
+
+        </canvas>
+
+    </section>
+    
+</body>
+</html>

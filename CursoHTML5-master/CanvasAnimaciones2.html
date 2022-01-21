@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Canvas VIII. Transformaciones. Vídeo 33</title>
+
+    <style>
+
+        #lienzo{
+            border: 1px solid #ff0000;
+        }
+
+        section{
+            width: 1200px;
+            position: relative;
+            margin: auto;
+        }
+
+    </style>
+
+    <!--ojos que siguen el movimiento del ratón-->    
+
+    <script>
+
+        var y=300; 
+
+        var estado="bajando";
+
+        var arriba=y;  //límite superior del bote
+
+        var horizontal=0;
+
+        function comenzar(){
+
+            var elemento = document.getElementById("lienzo");
+
+            // SIN "var" antes de lienzo.
+            lienzo = elemento.getContext("2d"); 
+
+            window.addEventListener("mousemove", animacion, false);
+
+        }
+
+        function animacion(e){
+
+            //Limpiar el Canvas
+            lienzo.clearRect(0,0,1200,900);
+
+            var xDelRaton = e.clientX;
+
+            var yDelRaton = e.clientY;
+
+            var xCentro = 550;
+
+            var yCentro = 325;
+
+            var angulo=Math.atan2(xDelRaton-xCentro, yDelRaton-yCentro);
+
+            var x = xCentro+Math.round(Math.sin(angulo)*10);
+
+            var y = yCentro+Math.round(Math.cos(angulo)*10);
+
+            lienzo.beginPath();
+
+            //exterior de los dos ojos
+
+            lienzo.arc(xCentro,yCentro,20,0,Math.PI*2,false);
+
+            lienzo.moveTo(620,325);
+
+            lienzo.arc(600,yCentro,20,0,Math.PI*2,false);
+
+            lienzo.stroke();
+
+            //interior de los dos ojos
+
+            lienzo.beginPath();
+
+            lienzo.arc(x,y,10,0,Math.PI*2,false);
+
+            lienzo.moveTo(x,y);
+
+            lienzo.arc(x+50,y,10,0,Math.PI*2,false);
+
+            lienzo.fill();
+
+        }
+
+        window.addEventListener("load", comenzar, false);
+            
+    </script>
+
+</head>
+<body>
+
+    <section>
+
+        <canvas width="1200" height="900" id="lienzo">
+
+            Su navegador no admite el elemento Canvas.
+
+        </canvas>
+
+    </section>
+    
+</body>
+</html>

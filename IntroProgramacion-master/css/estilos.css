@@ -1,0 +1,46 @@
+    h1{
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+
+    p {
+        font-family: Arial, Helvetica, sans-serif; font-size: 15px;
+    }
+
+    .estiloPersonalizado {
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; 
+        font-size: large; 
+        color: blueviolet; 
+        font-weight: bold; 
+        text-align: justify;
+    }
+
+    .capaPrincipal{
+        width: 100%; text-align: center;
+    }
+
+    .subCapas{
+        width: 30%; float: left;
+    }
+
+    img{
+        width: 150px; height: 150px;
+    }
+
+/*Los estilos se pueden asociar entre ellos o se pueden aplicar de manera común. Por ejemplo si deseo que todos los contenidos <span>, <p> y <div> tengan la misma fuente, el estilo se separa por comas (p,span,div) pero si se desea que un estilo se aplique dentro de un objeto específico, por ejemplo las <p> que están dentro de un <div> tengan ciertas características, se coloca separado por espacio (div p) */
+
+    div p {
+        font-size: large; font-weight: bold;
+    }
+
+    div span{
+        font-weight: bold;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    div a {
+        color: red;
+    }
+

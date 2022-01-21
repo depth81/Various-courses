@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplos JavaScript</title>
+</head>
+<body>
+
+    <pre>En este ejemplo vamos a cambiar los contenidos html a un elemento de un documento.</pre>
+
+    <h1 id="titulo"></h1>
+    
+</body>
+</html>
+
+<script type="text/Javascript">
+
+    //Funciones o Métodos let. functions <==> arrows
+    function operadores(a,b,tipo){
+
+        /*Dependiendo del parámetro 'tipo' realiza algunas operaciones
+          tipo operador: +, -, /, *
+        a y b son valores numéricos.
+        */
+        if (tipo=="+"){
+            total = a + b;
+        }
+        else if(tipo=="*"){
+            total = a * b;
+        }
+        else if(tipo=="/"){
+            total = a / b;
+        }
+        else if(tipo=="-"){
+            total = a - b;
+        }
+        else{
+            total = "La operación no es válida";
+        }
+
+        resultado = "La operación con " + tipo + " es: " + total;
+
+        return resultado;
+    }
+
+    /* Para invocar las propiedades y métodos de un elemento, usamos varias formas: 
+    
+    document.getElementById, document.querySelector, document.getElementByTagName. */
+
+    var capa = document.getElementById("titulo");
+
+    if (capa){
+        //esto permite saber si el obketo invocado existe. en caso que no exista, js saca error 'undefined'.
+        capa.innerHTML = operadores(50,100,"+");
+        //innerHTML permite cambiar el contenido adentro de un elemento.
+    }
+
+</script>

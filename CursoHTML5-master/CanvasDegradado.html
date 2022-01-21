@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas II. Degradados lineales</title>
+
+    <style>
+
+        section{
+            width: 500px;
+            margin: auto;
+        }
+
+      /* #lienzo{
+            background-color: red;
+        } */
+
+    </style>
+
+    <script>
+
+        window.addEventListener("load", comenzar, false);
+
+        function comenzar(){
+
+            //identificar el elemento canvas y almacenarlo dentro de una variable.
+            elemento = document.getElementById("lienzo"); 
+
+            //decir que es un Canvas tipo 2D.
+            lienzo = elemento.getContext("2d");
+
+            var degradado = lienzo.createLinearGradient(0,150,500,150);
+
+            degradado.addColorStop(0,"#FF0040");
+
+            degradado.addColorStop(1,"#088A08");
+
+            lienzo.fillStyle = degradado;
+
+            //Para mostrar el degradado hay que dibujar una figura en el Canvas. Si quiero ver el degradado completo debo dibujar una figura del tamaño del canvas exactamente.
+
+            lienzo.fillRect(0,0,500,300);
+
+        }
+
+    </script>
+
+</head>
+<body>
+
+    <section id="dibujo">
+
+        <canvas id="lienzo", width="500px" height="300px">
+
+            Su navegador no soporta el elemento Canvas.
+    
+            
+    
+    
+        </canvas>
+
+    </section>
+     
+</body>
+</html>

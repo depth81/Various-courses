@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery 3</title>
+    
+    <!-- Bootstrap -->
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+  
+
+</head>
+<body>
+
+    <h1>Ejemplos básicos de JQuery</h1>
+
+    <pre>Cargar contenidos desde otros archivos fuentes</pre>
+    <a href="contenidos/qsomos.html" id="boton_q">Quiénes somos</a> | <a href="#" id="boton_c">Contáctenos</a> | <a href="#" id="boton_s">Servicios</a>
+
+    <div class="container">
+        <div id="capa_cargar"></div>
+    </div>
+
+</body>
+</html>
+
+ <!--JQuery-->
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+ <script type="text/javascript">
+   /* Estas funciones permiten cargar contenido (de otros documentos *.html) en capa_cargar y además evitan que se realice el comportamiento por defecto el enlace */
+
+   $("#boton_q").click(function(evento){
+    evento.preventDefault(); //Bloquea el <a href="#">
+    $("#capa_cargar").load("contenidos/qsomos.html")
+   });
+
+   $("#boton_c").click(function(evento){
+    evento.preventDefault(); //Bloquea el <a href="#">
+    $("#capa_cargar").load("contenidos/contactenos.html")
+   });
+
+   $("#boton_s").click(function(evento){
+    evento.preventDefault(); //Bloquea el <a href="#">
+    $("#capa_cargar").load("contenidos/servicios.html")
+   });
+
+
+
+</script>

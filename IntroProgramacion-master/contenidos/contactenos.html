@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo Contáctenos</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+    
+<div class="container fluid">
+    <h1>Formulario de contacto</h1>
+
+    <form method="POST" name="frm" id="frm" action="gracias.html" class="font-weight-bold text-danger">
+
+
+    <div class="row p-2">
+        <div class="col col-6">
+            <label for="nombre">Nombres</label>
+            <input type="text" name="nombre" id="nombre" required class="form-control">
+        </div>
+        <div class="col col-6">
+            <label for="apellidos">Apellidos</label>
+            <input type="text" name="apellidos" id="apellidos" required class="form-control">
+        </div>
+    </div> 
+    <div class="row p-2">
+        <div class="col col-6">
+            <label for="correo">Email</label>
+            <input type="email" name="correo" id="correo" class="form-control">
+        </div>
+        <div class="col col-3">
+            <label for="telefono">Telefono</label>
+            <input type="number" name="telefono" id="telefono" class="form-control">
+        </div>
+        <div class="col col-3">
+            <label for="celular">Celular</label>
+            <input type="number" name="celular" id="celular" class="form-control">
+        </div>
+     </div>
+     <div class="row p-2">
+        <div class="col col-6">
+            <label for="tipo">Tipo de identificación</label>
+            <select name="tipo" id="tipo" class="form-control" required>
+                <option value="CC">Cedula</option>
+                <option value="extranjero">Cedula de extranjeria</option>
+                <option value="nit">NIT</option>
+                <option value="nuip">NUIP</option>
+            </select>
+        </div>
+        <div class="col col-6">
+            <label for="cedula">Numero de identificacion</label>
+            <input type="number" name="cedula" class="form-control" required>
+        </div>
+     </div>
+     <div class="row p-2">
+        <div class="col col-6">
+            <label for="dirección">Dirección</label>
+            <input type="text" name="dirección" class="form-control">
+        </div>
+        <div class="col col-3">
+            <label for="sexo">Sexo</label>
+            <select name="sexo" id="sexo" class="form-control">
+                <option value="">Seleccione</option>
+                <option value="F">Femenino</option>
+                <option value="M">Masculino</option>
+              </select>
+        </div>
+        <div class="col col-3">
+            <label for="fecha">Fecha de nacimiento</label>
+            <input type="date" name="fecha" class="form-control">
+        </div>
+     </div>
+     <div class="row p2">
+         <div class="col col-12">
+            <label for="comentarios">Comentarios adicionales</label>
+            <textarea name="comentarios" id="comentarios" cols="" rows="10" class="form-control"></textarea>
+         </div>
+     </div>
+    <div class="row p-2">
+        <div class="col col-12">
+           <input type="checkbox" name="acepto" id="acepto" required> <a href="" data-toggle="modal" data-target="#exampleModal">Acepto términos y condiciones</a>          
+        </div>
+    </div>
+    <div class="row p-2">
+        <div class="col col-12 text-center">
+            <button name="boton" id="boton" class="btn btn-secondary">Enviar Formulario</button>
+        </div>
+    </div>
+
+    </form>
+    
+</div> <!--container-->
+
+</body>
+
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+</html>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Políticas de acceso al sitio</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          Texto indicativo de las políticas de acceso al sitio
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-primary">Guardar</button>
+        </div>
+      </div>
+    </div>
+  </div>

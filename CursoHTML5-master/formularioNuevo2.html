@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DataList y API forms</title>
+
+    <style>
+
+        table{
+            text-align:center;
+            background-color:aquamarine;
+            width:25%;
+            margin:auto;
+            border: 2px #e3872c dashed;
+        }
+
+        td{
+            padding: 15px;
+        }
+
+    </style>
+
+    <script>
+
+        function comenzar(){
+
+            var nombre = document.getElementById("nombre");
+            
+            var apellido = document.getElementById("apellido");    
+
+            nombre.addEventListener("input",validar,false);
+
+            apellido.addEventListener("input",validar,false);
+
+            validar();
+
+        }
+
+        function validar(){
+
+            if(nombre.value=="" && apellido.value==""){
+
+                nombre.setCustomValidity("Introduce nombre o apellido");
+
+                nombre.style.background="#e32c2c";
+                apellido.style.background="#e32c2c";
+            }
+            else{
+
+                nombre.setCustomValidity("");  //invalidar mensaje de error.
+
+                nombre.style.background="#ffffff";
+                apellido.style.background="#ffffff";
+
+            }
+
+        }
+
+        window.addEventListener("load",comenzar, false);
+
+    </script>
+
+</head>
+<body>
+
+    <section>
+
+        <form action="" name="registroUsuario" method="GET">
+
+            <table>
+                <tr>
+                    <td>Nombre:</td>
+                    <td><input type="text" name="nombre" id="nombre"></td>
+                </tr>
+                <tr>
+                    <td>Apellido:</td>
+                    <td><input type="text" name="apellido" id="apellido"></td>
+                </tr>
+                <tr>
+                    <td>Edad:</td>
+                    <td><input type="number" name="edad" id="edad" min="1" max="100"></td>
+                </tr>
+                <tr>
+                    <td><input type="submit" name="Enviar" id="Enviar" value="Registrar"></td>
+                </tr>
+            </table>
+          
+        </form>
+
+    </section>
+    
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de solicitud de repuestos</title>
+</head>
+<body>
+
+    <font face="arial" size="+1">
+
+    <h1 align="center">“FORMULARIO PQR MAQUINAS A LAS MEDIDAS S.A.S”</h1>
+
+    <div align="center">
+         <img src="img/logoFINAL.jpg" alt="logo empresa maquinaria" height="200" width="400">
+    </div>
+    
+    <form action="gracias.html" name="forma" id="forma" method="POST">
+
+        <p>
+            <label for="nombre">Nombre del cliente</label> 
+            <br>
+            <input type="text" name="nombre" id="nombre" maxlength="100" placeholder="Digite su nombre" required>
+        </p>
+
+        <p>
+            <label for="Apellidos">Apellidos del cliente</label> 
+            <br>
+            <input type="text" name="apellidos" id="apellidos" maxlength="100" placeholder="Digite sus apellidos" required>
+        </p>
+
+        <p>
+            <label for="correo">Correo electrónico</label>
+            <br>
+            <input type="email" name="correo" id="correo" placeholder="email" required>
+        </p>
+
+        <p>
+            <label for="nit">NIT / Identificación</label>
+            <br>
+            <input type="number" name="nit" id="nit" min="0" max="99999999" placeholder="digite su nit" required>      
+        </p>
+
+        <p>
+            <label for="teléfono">Teléfono</label>
+            <br>
+            <input type="number" name="teléfono" id="teléfono" min="0" max="99999999" placeholder="digite su teléfono">      
+        </p>
+
+        <p>
+            <label for="Celular">Celular</label>
+            <br>
+            <input type="number" name="Celular" id="Celular" min="0" max="99999999" placeholder="digite su celular">      
+        </p>
+
+        <p>
+            <label for="nombre de la máquina">Nombre de la máquina</label> 
+            <br>
+            <input type="text" name="nombre de la máquina" id="nombre de la máquina" maxlength="50" placeholder="Digite el nombre de la máquina" required>
+        </p>
+
+        <p>
+            <label for="referencia">Referencia de la máquina</label> 
+            <br>
+            <input type="text" name="referencia" id="referencia" maxlength="10" placeholder="Digite la referencia" required>
+        </p>
+
+        <p>
+            <label for="procedencia de la máquina">Procedencia de la máquina</label>
+            <br>
+            <input type="radio" name="procedencia" id="procedencia" value="importado">importado <br>
+            <input type="radio" name="procedencia" id="procedencia" value="nacional">nacional <br>
+        </p>
+
+        <p>
+            <label for="tipo de solicitud">Tipo de solicitud</label>
+            <select name="solicitud" id="solicitud">
+                <option value="Reparación">Reparación</option>
+                <option value="Compra">Compra</option>
+                <option value="Garantía">Garantía</option>
+                <option value="Devolución">Devolución</option>
+            </select>
+        </p>
+
+        <p>
+            <label for="Comentarios">Comentarios adicionales</label> 
+            <br>
+            <textarea name="comentarios" id="comentarios" cols="60" rows="5" placeholder="digite sus comentarios"></textarea>
+        </p>
+
+        <p>
+            <input type="checkbox" name="acepto" id="acepto" required> Acepta términos y condiciones.
+        </p>
+
+        <a href="terminos.html" title="Click para ir a la página de términos y condiciones" target="_blank">Ir a términos y condiciones</a>
+
+        <p>
+            <button name="enviar" id="enviar">Enviar formulario</button>
+        </p>
+        
+        <p>
+            <input type="reset" value="Cancelar">
+        </p>      
+        
+    </form>
+    </font>
+
+</body>
+</html>

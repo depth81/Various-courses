@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+
+<script>
+
+    var num1 = prompt("Introduce el primer número");
+    var num2 = prompt("Introduce el segundo número");
+    //alert("num1 es de tipo " + typeof(num1));
+    //alert("num2 es de tipo " + typeof(num2));
+
+    if(!isNaN(num1) && !isNaN(num2)) //num1 sí es un número? num2 sí es un número? isNaN -> is not a number?. Debo preguntar is a number?. Usar "!"
+    {
+
+        var operacion = prompt("Qué operación deseas realizar?(suma/resta/multiplicación/división)");
+
+        if(operacion=="suma")
+        {
+
+            alert(parseInt(num1)+parseInt(num2));
+            //convertir cada string a entero con parseInt
+
+        }
+        else if(operacion=="resta")
+        {
+
+            alert(parseInt(num1)-parseInt(num2));
+            //convertir cada string a entero con parseInt
+
+        }
+        else if(operacion=="multiplicación" || operacion=="multiplicacion")
+        {
+
+            alert(parseInt(num1)*parseInt(num2));
+            //convertir cada string a entero con parseInt
+
+        }
+        else if(operacion=="división" || operacion=="division")
+        {
+
+            alert(parseInt(num1)/parseInt(num2));
+            //convertir cada string a entero con parseInt
+
+        }
+        else
+        {
+
+            alert("La operación indicada no está contemplada")
+
+        }
+
+    }
+    else
+    {
+
+        if(typeof(num1)=="string" || typeof(num2)=="String")
+        {
+
+            alert("No has introducido valores numéricos");
+
+        }
+    
+    } //end if (isNAN)
+    
+    
+</script>
+
+</head>
+<body>
+    
+</body>
+</html>
